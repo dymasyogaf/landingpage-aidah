@@ -1,0 +1,66 @@
+<nav class="navbar" id="navbar">
+  <div class="nav-container">
+    <a href="/" class="nav-logo">
+      <span class="logo-icon">🐟</span>
+      <span class="logo-text">Aidah</span>
+    </a>
+    <div class="nav-links" id="nav-links">
+      <a href="#features" class="nav-link">Fitur</a>
+      <a href="#how-it-works" class="nav-link">Cara Kerja</a>
+      <a href="#testimonials" class="nav-link">Testimoni</a>
+      <a href="#pricing" class="nav-link">Harga</a>
+    </div>
+    <div class="nav-actions">
+      <a href="https://money.aidah.web.id/login" class="btn-login" id="btn-login">Masuk</a>
+      <a href="https://money.aidah.web.id/register" class="btn-cta-nav">Daftar Gratis</a>
+      <button class="nav-hamburger" id="nav-hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  window.addEventListener("scroll", () => {
+    navbar?.classList.toggle("scrolled", window.scrollY > 40);
+  });
+  const hamburger = document.getElementById("nav-hamburger");
+  const navLinks = document.getElementById("nav-links");
+  hamburger?.addEventListener("click", () => {
+    navLinks?.classList.toggle("open");
+    hamburger.classList.toggle("active");
+  });
+  navLinks?.querySelectorAll(".nav-link").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      hamburger?.classList.remove("active");
+    });
+  });
+</script>
+
+<style>
+  .navbar{position:fixed;top:0;left:0;right:0;z-index:1000;padding:12px 0;transition:var(--transition);background:rgba(239,246,255,0.7);backdrop-filter:blur(16px)}
+  .navbar.scrolled{background:rgba(255,255,255,0.9);border-bottom:2px solid var(--ink);box-shadow:0 4px 0 var(--ink);padding:8px 0}
+  .nav-container{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between}
+  .nav-logo{display:flex;align-items:center;gap:8px}
+  .logo-icon{font-size:28px;line-height:1}
+  .logo-text{font-size:22px;font-weight:900;color:var(--text);letter-spacing:-0.5px}
+  .nav-links{display:flex;gap:28px}
+  .nav-link{font-size:14px;font-weight:700;color:var(--muted);transition:var(--transition);border-radius:10px;padding:6px 12px}
+  .nav-link:hover{color:var(--text);background:var(--blue-100)}
+  .nav-actions{display:flex;align-items:center;gap:10px}
+  .btn-login{font-size:14px;font-weight:800;color:var(--blue-600);padding:9px 18px;border-radius:var(--radius-sm);border:2px solid var(--border);transition:var(--transition);background:var(--surface)}
+  .btn-login:hover{border-color:var(--blue-400);background:var(--blue-50)}
+  .btn-cta-nav{font-size:14px;font-weight:800;color:#fff;background:var(--blue-500);padding:9px 20px;border-radius:var(--radius-sm);border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);transition:var(--transition)}
+  .btn-cta-nav:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
+  .btn-cta-nav:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
+  .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+  .nav-hamburger span{width:22px;height:2.5px;background:var(--text);border-radius:2px;transition:var(--transition)}
+  @media(max-width:768px){
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);flex-direction:column;padding:16px 24px;gap:8px;border-bottom:2px solid var(--ink);box-shadow:0 4px 0 var(--ink)}
+    .nav-links.open{display:flex}
+    .nav-hamburger{display:flex}
+    .btn-cta-nav{display:none}
+  }
+</style>

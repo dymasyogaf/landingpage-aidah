@@ -1,0 +1,58 @@
+<section class="features" id="features">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">Fitur Unggulan</span>
+      <h2 class="section-title">Semua yang kamu butuhkan<br /><span class="gradient-text">untuk kelola keuangan</span></h2>
+      <p class="section-desc">Tanpa spreadsheet rumit. Cukup ngobrol dengan Aidah.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card feature-card-lg">
+        <div class="feature-icon-wrap"><span class="feature-icon">💬</span></div>
+        <h3 class="feature-title">Chat AI Natural</h3>
+        <p class="feature-desc">Ketik "beli makan 35rb" atau "gaji masuk 8jt" — AI memahami dan mencatat otomatis. Tidak perlu isi form apapun.</p>
+        <div class="feature-tag">Paling Populer</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><span class="feature-icon">📊</span></div>
+        <h3 class="feature-title">Dashboard Real-time</h3>
+        <p class="feature-desc">Lihat saldo, pemasukan, pengeluaran, dan tren keuanganmu dalam satu tampilan.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><span class="feature-icon">🎯</span></div>
+        <h3 class="feature-title">Budget Otomatis</h3>
+        <p class="feature-desc">Bilang "tabung 10% dari gaji" — Aidah hitung dan buatkan budget per kategori.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><span class="feature-icon">🌟</span></div>
+        <h3 class="feature-title">Dream Journey</h3>
+        <p class="feature-desc">Track goals finansialmu — dari dana darurat sampai liburan impian.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><span class="feature-icon">📈</span></div>
+        <h3 class="feature-title">Laporan & Grafik</h3>
+        <p class="feature-desc">Grafik pengeluaran 6 bulan + breakdown per kategori, selalu up-to-date.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon-wrap"><span class="feature-icon">🔒</span></div>
+        <h3 class="feature-title">Aman & Privat</h3>
+        <p class="feature-desc">Data terproteksi Row Level Security — hanya kamu yang bisa akses datamu.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .features{padding:80px 0;background:var(--bg)}
+  .features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .feature-card{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius);padding:28px 24px;transition:var(--transition);position:relative;overflow:hidden;box-shadow:var(--shadow-bold)}
+  .feature-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .feature-card-lg{grid-column:span 3;display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--blue-100)}
+  .feature-icon-wrap{width:52px;height:52px;border-radius:16px;background:var(--blue-100);border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:2px 2px 0 var(--ink)}
+  .feature-card-lg .feature-icon-wrap{background:var(--surface)}
+  .feature-icon{font-size:24px}
+  .feature-title{font-size:17px;font-weight:900;margin-bottom:6px;color:var(--text)}
+  .feature-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:600}
+  .feature-tag{position:absolute;top:14px;right:14px;background:var(--blue-500);color:#fff;font-size:10px;font-weight:800;padding:4px 12px;border-radius:99px;border:1.5px solid var(--ink)}
+  @media(max-width:1024px){.features-grid{grid-template-columns:repeat(2,1fr)}.feature-card-lg{grid-column:span 2}}
+  @media(max-width:768px){.features-grid{grid-template-columns:1fr}.feature-card-lg{grid-column:span 1}}
+</style>

@@ -1,0 +1,31 @@
+<section class="cta-section" id="pricing">
+  <div class="section-container">
+    <div class="cta-card">
+      <div class="cta-orb cta-orb-1"></div>
+      <div class="cta-orb cta-orb-2"></div>
+      <span class="cta-badge">100% Gratis</span>
+      <h2 class="cta-title">Siap kelola keuanganmu<br />dengan lebih cerdas?</h2>
+      <p class="cta-desc">Bergabung sekarang dan rasakan kemudahan mencatat keuangan hanya dengan chat. Tanpa biaya, tanpa batas.</p>
+      <a href="https://money.aidah.web.id/register" class="btn-primary btn-xl">
+        <span>Mulai Sekarang — Gratis</span>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+      <p class="cta-note">Tidak perlu kartu kredit • Setup 30 detik</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section{padding:80px 0;background:var(--surface)}
+  .cta-card{background:var(--blue-500);border:2.5px solid var(--ink);border-radius:var(--radius-lg);padding:56px 36px;text-align:center;position:relative;overflow:hidden;box-shadow:6px 6px 0 var(--ink)}
+  .cta-orb{position:absolute;border-radius:50%;opacity:0.15}
+  .cta-orb-1{width:250px;height:250px;background:#fff;top:-80px;left:-40px}
+  .cta-orb-2{width:200px;height:200px;background:#fff;bottom:-60px;right:-20px}
+  .cta-badge{display:inline-flex;background:var(--income-bg);border:2px solid var(--ink);color:var(--income-text);font-size:13px;font-weight:800;padding:6px 18px;border-radius:99px;margin-bottom:18px;box-shadow:2px 2px 0 var(--ink)}
+  .cta-title{font-size:clamp(24px,4vw,36px);font-weight:900;letter-spacing:-0.5px;margin-bottom:12px;line-height:1.2;color:#fff;position:relative;z-index:2}
+  .cta-desc{font-size:15px;color:var(--blue-100);max-width:480px;margin:0 auto 28px;position:relative;z-index:2;font-weight:600}
+  .cta-section .btn-primary{background:#fff;color:var(--blue-600);border-color:var(--ink)}
+  .cta-section .btn-primary svg{stroke:var(--blue-600)}
+  .cta-note{font-size:12px;color:var(--blue-200);margin-top:14px;position:relative;z-index:2;font-weight:700}
+  @media(max-width:768px){.cta-card{padding:36px 20px}}
+</style>

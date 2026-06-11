@@ -1,0 +1,203 @@
+---
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#3B82F6" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://aidah.web.id" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap");
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  :root {
+    --blue-50: #eff6ff;
+    --blue-100: #dbeafe;
+    --blue-200: #bfdbfe;
+    --blue-300: #93c5fd;
+    --blue-400: #60a5fa;
+    --blue-500: #3b82f6;
+    --blue-600: #2563eb;
+    --blue-700: #1d4ed8;
+    --blue-800: #1e40af;
+
+    --bg: #eff6ff;
+    --surface: #ffffff;
+    --text: #1e3a5f;
+    --muted: #6b8fb5;
+    --border: #bfdbfe;
+    --ink: #1a1a1a;
+
+    --income-bg: #dcfce7;
+    --income-text: #166534;
+    --expense-bg: #fce7f3;
+    --expense-text: #9d174d;
+
+    --shadow-bold: 4px 4px 0 var(--ink);
+    --radius: 20px;
+    --radius-sm: 12px;
+    --radius-lg: 24px;
+    --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: "Nunito", "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .gradient-text {
+    color: var(--blue-600);
+  }
+
+  /* ===== BUTTONS ===== */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-500);
+    color: #fff;
+    font-weight: 800;
+    font-family: inherit;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-bold);
+    transition: var(--transition);
+    text-decoration: none;
+  }
+  .btn-primary:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-primary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--blue-100);
+    color: var(--blue-800);
+    font-weight: 800;
+    font-family: inherit;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    cursor: pointer;
+    box-shadow: var(--shadow-bold);
+    transition: var(--transition);
+  }
+  .btn-secondary:hover {
+    background: var(--blue-200);
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+  .btn-secondary:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .btn-lg {
+    padding: 14px 28px;
+    font-size: 16px;
+  }
+  .btn-xl {
+    padding: 16px 32px;
+    font-size: 17px;
+  }
+
+  /* ===== SECTIONS COMMON ===== */
+  .section-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-100);
+    border: 2px solid var(--ink);
+    border-radius: 99px;
+    padding: 6px 18px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--blue-800);
+    margin-bottom: 14px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .section-title {
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+    margin-bottom: 10px;
+    color: var(--text);
+  }
+  .section-desc {
+    font-size: 16px;
+    color: var(--muted);
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 600;
+  }
+
+  /* ===== SCROLL REVEAL ===== */
+  .revealed {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
