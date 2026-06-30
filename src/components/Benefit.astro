@@ -1,0 +1,62 @@
+<section class="benefit" id="benefit">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">Keuntungan</span>
+      <h2 class="section-title">Kenapa <span class="gradient-text">500+ orang</span> sudah pakai Aidah?</h2>
+      <p class="section-desc">Bukan cuma fitur — tapi dampak nyata untuk keuanganmu.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-card benefit-praktis">
+        <span class="benefit-icon">⚡</span>
+        <h3 class="benefit-title">Catat &lt; 5 Detik</h3>
+        <p class="benefit-desc">Tidak perlu buka form, pilih kategori, atau isi tanggal. Cukup ketik, selesai.</p>
+        <span class="benefit-tag">Praktis</span>
+      </div>
+      <div class="benefit-card benefit-praktis">
+        <span class="benefit-icon">🤖</span>
+        <h3 class="benefit-title">Budget Otomatis</h3>
+        <p class="benefit-desc">Bilang "tabung 10% dari gaji" — Aidah hitung dan buatkan budget tanpa kamu hitung manual.</p>
+        <span class="benefit-tag">Praktis</span>
+      </div>
+      <div class="benefit-card benefit-emosional">
+        <span class="benefit-icon">😌</span>
+        <h3 class="benefit-title">Tenang Soal Uang</h3>
+        <p class="benefit-desc">Tahu persis uang pergi ke mana. Tidak ada lagi akhir bulan yang bikin panik.</p>
+        <span class="benefit-tag tag-emosi">Emosional</span>
+      </div>
+      <div class="benefit-card benefit-emosional">
+        <span class="benefit-icon">🏆</span>
+        <h3 class="benefit-title">Akhirnya Konsisten</h3>
+        <p class="benefit-desc">Bangga karena untuk pertama kalinya, kamu bisa rutin catat keuangan tanpa paksaan.</p>
+        <span class="benefit-tag tag-emosi">Emosional</span>
+      </div>
+      <div class="benefit-card benefit-finansial">
+        <span class="benefit-icon">📉</span>
+        <h3 class="benefit-title">Sadar Boros, Bisa Hemat</h3>
+        <p class="benefit-desc">Laporan otomatis tunjukkan kebiasaan pengeluaranmu. Sadar = bisa kurangi.</p>
+        <span class="benefit-tag tag-finansial">Finansial</span>
+      </div>
+      <div class="benefit-card benefit-finansial">
+        <span class="benefit-icon">🎁</span>
+        <h3 class="benefit-title">Gratis, Tanpa Jebakan</h3>
+        <p class="benefit-desc">Semua fitur dasar gratis selamanya. Upgrade ke Pro hanya kalau kamu butuh fitur lebih.</p>
+        <span class="benefit-tag tag-finansial">Finansial</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .benefit{padding:80px 0;background:var(--surface)}
+  .benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .benefit-card{background:var(--bg);border:2px solid var(--ink);border-radius:var(--radius);padding:28px 24px;transition:var(--transition);box-shadow:var(--shadow-bold);position:relative}
+  .benefit-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
+  .benefit-icon{font-size:28px;display:block;margin-bottom:12px}
+  .benefit-title{font-size:17px;font-weight:900;margin-bottom:6px;color:var(--text)}
+  .benefit-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:600}
+  .benefit-tag{position:absolute;top:14px;right:14px;font-size:10px;font-weight:800;padding:4px 12px;border-radius:99px;border:1.5px solid var(--ink);background:var(--blue-100);color:var(--blue-800)}
+  .tag-emosi{background:#FEF3C7;color:#92400E}
+  .tag-finansial{background:var(--income-bg);color:var(--income-text)}
+  @media(max-width:1024px){.benefit-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:768px){.benefit-grid{grid-template-columns:1fr}}
+</style>

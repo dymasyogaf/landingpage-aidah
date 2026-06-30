@@ -43,6 +43,9 @@
   .step-icon{font-size:36px;margin-bottom:12px}
   .step-title{font-size:17px;font-weight:900;margin-bottom:6px;color:var(--text)}
   .step-desc{font-size:13px;color:var(--muted);line-height:1.6;font-weight:600}
-  .step-connector{color:var(--muted);flex-shrink:0}
-  @media(max-width:768px){.steps-grid{flex-direction:column}.step-connector{transform:rotate(90deg)}}
+  .step-connector{color:var(--muted);flex-shrink:0;transition:var(--transition)}
+  @media(max-width:768px){
+    .steps-grid{flex-direction:column}
+    .step-connector{transform:rotate(90deg);margin:10px 0}
+  }
 </style>

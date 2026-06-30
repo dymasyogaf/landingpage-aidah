@@ -10,21 +10,21 @@
     });
   }, observerOptions);
 
-  document.querySelectorAll('.feature-card, .step-card, .testimonial-card, .cta-card').forEach(el => {
+  document.querySelectorAll('.feature-card, .step-card, .testimonial-card, .pricing-plan, .faq-item, .cta-card, .problem-card, .solution-card, .benefit-card, .trust-card').forEach(el => {
     (el as HTMLElement).style.opacity = '0';
-    (el as HTMLElement).style.transform = 'translateY(30px)';
-    (el as HTMLElement).style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    (el as HTMLElement).style.transform = 'translateY(40px) scale(0.96)';
+    (el as HTMLElement).style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
     observer.observe(el);
   });
 
   // Stagger animation for grid items
-  document.querySelectorAll('.features-grid, .testimonial-grid, .steps-grid').forEach(grid => {
+  document.querySelectorAll('.features-grid, .testimonial-grid, .steps-grid, .faq-list, .problem-grid, .benefit-grid, .trust-grid, .pricing-grid').forEach(grid => {
     const gridObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          const children = entry.target.querySelectorAll('.feature-card, .step-card, .testimonial-card');
+          const children = entry.target.querySelectorAll('.feature-card, .step-card, .testimonial-card, .faq-item, .problem-card, .benefit-card, .trust-card, .pricing-plan');
           children.forEach((child, i) => {
-            (child as HTMLElement).style.transitionDelay = `${i * 0.1}s`;
+            (child as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
             child.classList.add('revealed');
           });
           gridObserver.unobserve(entry.target);

@@ -1,0 +1,56 @@
+<section class="faq" id="faq">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">FAQ</span>
+      <h2 class="section-title">Pertanyaan <span class="gradient-text">yang sering muncul</span></h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-question">Aidah beneran gratis? Apa ada biaya tersembunyi?</summary>
+        <div class="faq-answer">Gratis sepenuhnya. Tidak ada biaya langganan, tidak ada fitur yang dikunci di balik paywall, dan tidak perlu kartu kredit untuk mendaftar.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Data keuangan saya aman?</summary>
+        <div class="faq-answer">Data kamu diproteksi dengan Row Level Security — artinya hanya kamu yang bisa mengakses datamu sendiri. Tidak ada siapapun, termasuk tim Aidah, yang bisa melihat data finansialmu.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">AI-nya bisa salah parsing transaksi?</summary>
+        <div class="faq-answer">AI Aidah dilatih untuk memahami bahasa sehari-hari Indonesia. Jika ada kesalahan, kamu bisa langsung koreksi lewat chat dan AI akan belajar dari koreksi tersebut.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Bisa dipakai untuk usaha/bisnis kecil?</summary>
+        <div class="faq-answer">Saat ini Aidah didesain untuk keuangan pribadi. Fitur untuk UMKM dan bisnis kecil sedang dalam pengembangan.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Bagaimana cara mulai menggunakan Aidah?</summary>
+        <div class="faq-answer">Cukup daftar akun di website (30 detik), lalu langsung chat transaksimu. Tidak ada setup rumit — ketik "beli kopi 25rb" dan Aidah langsung catat.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Saya orangnya malas catat keuangan, bisa pakai ini?</summary>
+        <div class="faq-answer">Justru Aidah dibuat untuk kamu. Tidak perlu buka form, pilih kategori, atau isi tanggal. Cukup ketik "kopi 25rb" — selesai. Lebih cepat dari bikin status WhatsApp.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Aplikasi keuangan biasanya ribet, Aidah beda?</summary>
+        <div class="faq-answer">Beda total. Aidah tidak punya menu membingungkan atau form panjang. Semua lewat chat — kamu tinggal ngobrol seperti biasa, Aidah yang urus sisanya.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-question">Apa bedanya paket Gratis dan Pro?</summary>
+        <div class="faq-answer">Paket Gratis sudah mencakup fitur dasar: chat AI (50 pesan/hari), dashboard, budget manual, dan laporan dasar. Pro memberikan chat tanpa batas, budget otomatis AI, Tabungan Impian, laporan lengkap, export data, dan priority support.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq{padding:80px 0;background:var(--bg)}
+  .faq-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
+  .faq-item{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow-bold);transition:var(--transition);overflow:hidden}
+  .faq-item:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
+  .faq-item[open]{background:var(--blue-50)}
+  .faq-question{padding:18px 22px;font-size:15px;font-weight:800;color:var(--text);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
+  .faq-question::-webkit-details-marker{display:none}
+  .faq-question::after{content:'+';font-size:20px;font-weight:900;color:var(--blue-500);flex-shrink:0;transition:transform 0.3s ease}
+  .faq-item[open] .faq-question::after{content:'−'}
+  .faq-answer{padding:0 22px 18px;font-size:14px;color:var(--muted);line-height:1.7;font-weight:600}
+  @media(max-width:480px){.faq-question{font-size:14px;padding:16px 18px}.faq-answer{padding:0 18px 16px;font-size:13px}}
+</style>

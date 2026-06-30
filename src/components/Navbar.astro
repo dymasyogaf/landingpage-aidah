@@ -19,6 +19,11 @@
   </div>
 </nav>
 
+<a href="https://app.aidah.web.id/register" class="mobile-sticky-cta">
+  <span>Mulai Gratis</span>
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+</a>
+
 <script>
   const navbar = document.getElementById("navbar");
   window.addEventListener("scroll", () => {
@@ -54,11 +59,34 @@
   .btn-cta-nav:hover{transform:translate(-1px,-1px);box-shadow:4px 4px 0 var(--ink)}
   .btn-cta-nav:active{transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
   .nav-hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
-  .nav-hamburger span{width:22px;height:2.5px;background:var(--text);border-radius:2px;transition:var(--transition)}
+  .nav-hamburger span{width:24px;height:2.5px;background:var(--text);border-radius:2px;transition:transform 0.3s ease, opacity 0.3s ease}
+  .nav-hamburger.active span:nth-child(1){transform:translateY(7.5px) rotate(45deg)}
+  .nav-hamburger.active span:nth-child(2){opacity:0}
+  .nav-hamburger.active span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg)}
+  .mobile-sticky-cta{display:none}
   @media(max-width:768px){
-    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);flex-direction:column;padding:16px 24px;gap:8px;border-bottom:2px solid var(--ink);box-shadow:0 4px 0 var(--ink)}
-    .nav-links.open{display:flex}
+    .nav-links{
+      position:absolute;top:100%;left:0;right:0;
+      background:rgba(255,255,255,0.95);backdrop-filter:blur(16px);
+      flex-direction:column;padding:16px 24px;gap:8px;
+      border-bottom:2px solid var(--ink);box-shadow:0 4px 0 var(--ink);
+      opacity:0;visibility:hidden;transform:translateY(-10px);
+      transition:all 0.3s ease;
+    }
+    .nav-links.open{opacity:1;visibility:visible;transform:translateY(0)}
     .nav-hamburger{display:flex}
     .btn-cta-nav{display:none}
+    .mobile-sticky-cta{
+      display:flex;align-items:center;justify-content:center;gap:8px;
+      position:fixed;bottom:0;left:0;right:0;z-index:999;
+      background:var(--blue-500);color:#fff;
+      font-size:15px;font-weight:800;font-family:inherit;
+      padding:14px 24px;
+      border-top:2px solid var(--ink);
+      box-shadow:0 -2px 0 var(--ink);
+      text-decoration:none;
+      transition:var(--transition);
+    }
+    .mobile-sticky-cta:active{background:var(--blue-600)}
   }
 </style>
