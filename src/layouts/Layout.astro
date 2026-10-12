@@ -5,9 +5,48 @@ import Footer from '../components/Footer.astro';
 interface Props {
   title: string;
   description: string;
+  canonical?: string;
+  image?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, canonical, image } = Astro.props;
+const siteUrl = 'https://aidah.web.id';
+const currentUrl = canonical || new URL(Astro.url.pathname, siteUrl).href;
+const ogImage = image || `${siteUrl}/AIdah.png`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://aidah.web.id/#app",
+      "name": "AIdah",
+      "url": "https://aidah.web.id",
+      "description": description,
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Web, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "IDR",
+        "description": "Akses penuh bersahabat dengan traktir kopi via QRIS"
+      },
+      "author": {
+        "@type": "Person",
+        "@id": "https://dymasyogaf.my.id/#person",
+        "name": "Dymas Yoga Febratama",
+        "url": "https://dymasyogaf.my.id"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://dymasyogaf.my.id/#person",
+      "name": "Dymas Yoga Febratama",
+      "url": "https://dymasyogaf.my.id",
+      "jobTitle": "Software Developer"
+    }
+  ]
+};
 ---
 
 <!doctype html>
@@ -17,15 +56,23 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="author" content="Dymas Yoga Febratama" />
+    <meta name="creator" content="Dymas Yoga Febratama (https://dymasyogaf.my.id)" />
+    <meta name="publisher" content="Dymas Yoga Febratama" />
+    <meta name="keywords" content="aidah, pencatat keuangan, asisten keuangan ai, catatan keuangan chat, fintrack, dymas yoga febratama, manajemen uang pribadi, budget tracker indonesia" />
+    <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#3B82F6" />
+    <link rel="canonical" href={currentUrl} />
     <link rel="icon" type="image/webp" href="/logo-aidah.webp" />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://aidah.web.id" />
-    <meta property="og:image" content="https://aidah.web.id/AIdah.png" />
+    <meta property="og:url" content={currentUrl} />
+    <meta property="og:site_name" content="AIdah" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -33,7 +80,10 @@ const { title, description } = Astro.props;
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="https://aidah.web.id/AIdah.png" />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
