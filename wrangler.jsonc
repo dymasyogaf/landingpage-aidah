@@ -3,5 +3,15 @@
   "compatibility_date": "2026-06-11",
   "assets": {
     "directory": "./dist"
-  }
+  },
+  "routes": [
+    {
+      "pattern": "aidah.web.id",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.aidah.web.id",
+      "custom_domain": true
+    }
+  ]
 }
