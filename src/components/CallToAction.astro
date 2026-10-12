@@ -11,6 +11,9 @@
           <span>Buka Akses Sekarang (Traktir Kopi)</span>
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
+        <a href="https://github.com/dymasyogaf/landingpage-aidah/releases/latest/download/AIdah.apk" class="btn-xl cta-btn-apk" download="AIdah.apk">
+          <span>📱 Download APK</span>
+        </a>
       </div>
       <p class="cta-note">Scan QRIS instan • Tanpa langganan kartu kredit berulang</p>
     </div>
@@ -67,6 +70,8 @@
   .cta-actions {
     display: flex;
     justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
   .cta-card .cta-btn {
     background: #FFFFFF;
@@ -80,6 +85,25 @@
   }
   .cta-card .cta-btn svg {
     stroke: #1D4ED8;
+  }
+  .cta-card .cta-btn-apk {
+    background: #FEF08A;
+    color: var(--ink);
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius);
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    transition: var(--transition);
+  }
+  .cta-card .cta-btn-apk:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: #FDE047;
   }
   .cta-note {
     font-size: 13px;
