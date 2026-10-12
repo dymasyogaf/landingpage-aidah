@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Syarat & Ketentuan — AIdah"
+  description="Syarat dan ketentuan penggunaan layanan asisten pencatatan keuangan pribadi AIdah."
+>
+  <div class="legal-page">
+    <div class="legal-container">
+      <div class="legal-header">
+        <a href="/" class="btn-back">← Kembali ke Beranda</a>
+        <span class="legal-badge">Legal & Ketentuan</span>
+        <h1 class="legal-title">Syarat & Ketentuan Layanan</h1>
+        <p class="legal-meta">Terakhir diperbarui: 12 Oktober 2026</p>
+      </div>
+
+      <div class="legal-card">
+        <section class="legal-section">
+          <h2>1. Penerimaan Ketentuan</h2>
+          <p>
+            Dengan mendaftar, mengakses, atau menggunakan layanan <strong>AIdah</strong> (aidah.web.id dan aplikasi mobile APK), Anda menyetujui untuk terikat oleh Syarat dan Ketentuan Layanan ini. Jika Anda tidak menyetujui ketentuan ini, mohon untuk tidak menggunakan layanan kami.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>2. Definisi & Sifat Layanan</h2>
+          <p>
+            AIdah adalah piranti lunak pembukuan dan pencatatan keuangan pribadi yang memanfaatkan kecerdasan buatan (AI) untuk membantu mengurai teks transaksi harian.
+          </p>
+          <div class="disclaimer-callout">
+            <strong>⚠️ Bukan Penasihat Finansial Resmi:</strong> AIdah bukan penasihat keuangan, konsultan investasi berlisensi, atau lembaga perbankan resmi. Segala keputusan finansial, investasi, dan pengeluaran sepenuhnya merupakan tanggung jawab pribadi pengguna.
+          </div>
+        </section>
+
+        <section class="legal-section">
+          <h2>3. Akun & Keamanan Akses</h2>
+          <ul>
+            <li>Anda bertanggung jawab menjaga kerahasiaan akses email dan kode OTP Anda.</li>
+            <li>Pada aplikasi mobile, Anda disarankan mengaktifkan PIN 4-digit dan autentikasi biometrik untuk mencegah akses fisik tidak sah oleh pihak lain pada perangkat ponsel Anda.</li>
+            <li>Anda dilarang menyalahgunakan sistem AIdah untuk kegiatan ilegal, penipuan, pencucian uang, atau merusak integritas infrastruktur server.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>4. Model Akses (Traktir Kopi)</h2>
+          <p>
+            AIdah mengusung skema pembayaran bersahabat tanpa langganan kartu kredit berulang:
+          </p>
+          <ul>
+            <li>Akses penuh diaktifkan dengan memberikan dukungan donasi satu cup kopi seikhlasnya via scan QRIS resmi yang tertera di halaman Traktir Kopi.</li>
+            <li>Pembayaran traktir kopi bersifat final dan tidak dapat dikembalikan (non-refundable) setelah akses akun diaktifkan.</li>
+            <li>Pengembang berhak menyediakan pembaruan fitur, perbaikan bug, atau penyesuaian layanan secara berkala.</li>
+          </ul>
+        </section>
+
+        <section class="legal-section">
+          <h2>5. Ketersediaan Layanan & Batasan Tanggung Jawab</h2>
+          <p>
+            Kami berupaya menjaga layanan tetap berjalan optimal selama 24/7. Namun demikian, layanan disediakan atas dasar <em>"as is"</em> (sebagaimana adanya). Kami tidak bertanggung jawab atas kerugian tidak langsung yang timbul akibat gangguan jaringan internet, kendala pihak ketiga (seperti provider server atau pemadaman listrik), atau kelalaian pengguna dalam menyimpan perangkatnya.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>6. Perubahan Ketentuan</h2>
+          <p>
+            Kami dapat memperbarui Syarat dan Ketentuan ini dari waktu ke waktu. Pembaruan akan diumumkan di halaman ini dengan tanggal revisi terbaru. Penggunaan berkelanjutan Anda atas layanan menandakan persetujuan Anda terhadap perubahan tersebut.
+          </p>
+        </section>
+
+        <section class="legal-section">
+          <h2>7. Kontak & Bantuan Layanan</h2>
+          <p>
+            Untuk pertanyaan terkait syarat ketentuan atau bantuan teknis seputar akun Anda, silakan hubungi tim AIdah:
+          </p>
+          <div class="contact-box">
+            <p><strong>Email:</strong> <a href="mailto:support@aidah.web.id">support@aidah.web.id</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/6289661209500" target="_blank" rel="noopener">+62 896-6120-9500</a></p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  .legal-page {
+    padding: 110px 0 80px;
+    background: var(--bg);
+    min-height: 100vh;
+  }
+  .legal-container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .legal-header {
+    margin-bottom: 28px;
+  }
+  .btn-back {
+    display: inline-flex;
+    align-items: center;
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--blue-700);
+    background: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: 10px;
+    padding: 6px 14px;
+    box-shadow: 2px 2px 0 var(--ink);
+    margin-bottom: 18px;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+  .btn-back:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .legal-badge {
+    display: block;
+    width: fit-content;
+    background: #DBEAFE;
+    color: var(--blue-800);
+    border: 1.5px solid var(--ink);
+    border-radius: 99px;
+    font-size: 11.5px;
+    font-weight: 800;
+    padding: 4px 12px;
+    margin-bottom: 8px;
+  }
+  .legal-title {
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 900;
+    color: var(--ink);
+    letter-spacing: -0.8px;
+    margin-bottom: 6px;
+  }
+  .legal-meta {
+    font-size: 13px;
+    font-weight: 600;
+    color: #64748B;
+  }
+  .legal-card {
+    background: #FFFFFF;
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    box-shadow: 8px 8px 0 var(--ink);
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+  .legal-section h2 {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 10px;
+    border-bottom: 1.5px solid #E2E8F0;
+    padding-bottom: 6px;
+  }
+  .legal-section p {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: #334155;
+    font-weight: 500;
+  }
+  .disclaimer-callout {
+    margin-top: 10px;
+    background: #FEF3C7;
+    border: 2px solid var(--ink);
+    border-radius: 12px;
+    padding: 14px 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: #92400E;
+    font-weight: 600;
+  }
+  .legal-section ul {
+    margin-top: 10px;
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .legal-section li {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+  }
+  .contact-box {
+    margin-top: 12px;
+    background: #EFF6FF;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 16px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-box a {
+    color: var(--blue-700);
+    font-weight: 700;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .legal-page {
+      padding: 90px 0 60px;
+    }
+    .legal-container {
+      padding: 0 16px;
+    }
+    .legal-card {
+      padding: 26px 18px;
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+  }
+</style>
