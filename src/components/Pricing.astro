@@ -12,10 +12,10 @@
         <div class="coffee-header">
           <div class="coffee-price-wrap">
             <span class="price-val">1 Cup Kopi</span>
-            <span class="price-sub">≈ Rp 15.000 (via QRIS)</span>
+            <span class="price-sub">Nominal Bebas / Seikhlasnya</span>
           </div>
           <p class="price-desc">
-            Dukung pengembang independen dan nikmati asisten keuangan pribadi yang bebas repot.
+            Dukung pengembang independen dengan traktir kopi via QRIS, dan nikmati asisten keuangan pribadi yang bebas repot.
           </p>
         </div>
 
@@ -210,11 +210,21 @@
   }
 
   @media (max-width: 600px) {
+    .pricing-section {
+      padding: 60px 0;
+    }
+    .section-container {
+      padding: 0 16px;
+    }
     .coffee-card {
-      padding: 32px 20px;
+      padding: 30px 16px;
+      box-shadow: 5px 5px 0 var(--ink);
     }
     .coffee-badge {
-      left: 20px;
+      left: 16px;
+    }
+    .price-val {
+      font-size: 26px;
     }
   }
 </style>

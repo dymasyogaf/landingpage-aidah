@@ -335,10 +335,40 @@
   @media (max-width: 900px) {
     .hero-container {
       grid-template-columns: 1fr;
-      gap: 40px;
+      gap: 36px;
+      padding: 0 16px;
     }
     .hero {
-      padding: 100px 0 60px;
+      padding: 90px 0 50px;
+    }
+  }
+  @media (max-width: 520px) {
+    .hero-actions {
+      flex-direction: column;
+    }
+    .hero-actions .btn-lg {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    .stat-divider {
+      display: none;
+    }
+    .stat-number {
+      font-size: 18px;
+    }
+    .stat-label {
+      font-size: 10.5px;
+    }
+    .chat-mockup {
+      box-shadow: 5px 5px 0 var(--ink);
+    }
+    .chat-mockup-body {
+      padding: 14px 12px;
     }
   }
 </style>
