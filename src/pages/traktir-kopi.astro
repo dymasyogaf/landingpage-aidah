@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Traktir Kopi — Aidah"
+  description="Selesaikan traktiran kamu dengan 4 langkah mudah menggunakan QRIS."
+>
+  <section class="traktir-kopi">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Pembayaran</span>
+        <h1 class="section-title">Traktir Kopi</h1>
+        <p class="section-desc">Selesaikan traktiran kamu dengan 4 langkah mudah:</p>
+      </div>
+      
+      <div class="payment-card">
+        <div class="qris-container">
+          <img src="/qris/qris.png" alt="QRIS Aidah" class="qris-image" />
+          <a href="/qris/qris.png" download="QRIS_Aidah.png" class="btn-secondary btn-download">
+            <span>Simpan QRIS</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+          </a>
+        </div>
+
+        <div class="instruction-list">
+          <div class="step-item">
+            <span class="step-emoji">1️⃣</span>
+            <p><strong>Simpan gambar QRIS</strong> di HP Anda (klik tombol di atas)</p>
+          </div>
+          <div class="step-item">
+            <span class="step-emoji">2️⃣</span>
+            <p><strong>Buka aplikasi</strong> dompet digital Anda</p>
+          </div>
+          <div class="step-item">
+            <span class="step-emoji">3️⃣</span>
+            <p>Pilih fitur <strong>Scan QR atau Upload QR</strong></p>
+          </div>
+          <div class="step-item">
+            <span class="step-emoji">4️⃣</span>
+            <p><strong>Upload gambar QRIS</strong> ini, lalu ikuti instruksi untuk menyelesaikan traktiran</p>
+          </div>
+        </div>
+
+        <div class="action-container">
+          <!-- Bisa disesuaikan mau diarahkan kemana -->
+          <a href="/konfirmasi-pembayaran" class="btn-primary btn-xl">
+            <span>Konfirmasi Traktiran</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .traktir-kopi {
+    padding: 120px 0 80px;
+    background: var(--surface);
+    min-height: 100vh;
+  }
+  .payment-card {
+    max-width: 600px;
+    margin: 0 auto;
+    background: var(--bg);
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: var(--shadow-bold);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  .qris-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    background: #fff;
+    padding: 24px;
+    border-radius: var(--radius);
+    border: 2px dashed var(--blue-300);
+  }
+  .qris-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  .btn-download {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  .instruction-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .step-item {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: var(--surface);
+    padding: 16px;
+    border-radius: var(--radius-sm);
+    border: 1.5px solid var(--border);
+  }
+  .step-emoji {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .step-item p {
+    font-size: 14.5px;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .step-item p strong {
+    font-weight: 800;
+  }
+  .action-container {
+    text-align: center;
+    margin-top: 8px;
+  }
+  .btn-xl {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  @media (max-width: 640px) {
+    .payment-card {
+      padding: 24px 20px;
+    }
+  }
+</style>

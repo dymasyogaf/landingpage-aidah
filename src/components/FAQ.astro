@@ -1,56 +1,147 @@
 <section class="faq" id="faq">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">FAQ</span>
-      <h2 class="section-title">Pertanyaan <span class="gradient-text">yang sering muncul</span></h2>
+      <span class="section-badge">Tanya Jawab</span>
+      <h2 class="section-title">Pertanyaan yang <span class="highlight-inline">sering diajukan</span></h2>
+      <p class="section-desc">Jawaban jujur seputar cara kerja, model akses, dan keamanan.</p>
     </div>
     <div class="faq-list">
-      <details class="faq-item">
-        <summary class="faq-question">Aidah beneran gratis? Apa ada biaya tersembunyi?</summary>
-        <div class="faq-answer">Gratis sepenuhnya. Tidak ada biaya langganan, tidak ada fitur yang dikunci di balik paywall, dan tidak perlu kartu kredit untuk mendaftar.</div>
+      <details class="faq-item" open>
+        <summary class="faq-question">Berapa biayanya? Kenapa pakai model traktir kopi?</summary>
+        <div class="faq-answer">
+          Kami tidak ingin membebani pengguna dengan tagihan SaaS bulanan yang mahal. Cukup lakukan pembayaran satu cup kopi (sekitar Rp 15.000) via QRIS untuk mengaktifkan akunmu secara penuh.
+        </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question">Data keuangan saya aman?</summary>
-        <div class="faq-answer">Data kamu diproteksi dengan Row Level Security — artinya hanya kamu yang bisa mengakses datamu sendiri. Tidak ada siapapun, termasuk tim Aidah, yang bisa melihat data finansialmu.</div>
+        <summary class="faq-question">Apakah data keuangan saya aman dari orang lain?</summary>
+        <div class="faq-answer">
+          Aman. Database Supabase menerapkan proteksi Row Level Security (RLS). Artinya, hanya akun yang terautentikasi dengan token milikmu yang bisa melihat isi catatan transaksi. Pengembang pun tidak menjual data ke pihak luar.
+        </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question">AI-nya bisa salah parsing transaksi?</summary>
-        <div class="faq-answer">AI Aidah dilatih untuk memahami bahasa sehari-hari Indonesia. Jika ada kesalahan, kamu bisa langsung koreksi lewat chat dan AI akan belajar dari koreksi tersebut.</div>
+        <summary class="faq-question">Bagaimana jika AI salah menangkap nominal transaksi?</summary>
+        <div class="faq-answer">
+          Sebelum data dimasukkan ke saldo permanen, Nemo AI selalu menampilkan ringkasan kartu deteksi untuk konfirmasi. Jika ada yang meleset, kamu cukup membalas pesan koreksi atau menghapus transaksi dari daftar.
+        </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question">Bisa dipakai untuk usaha/bisnis kecil?</summary>
-        <div class="faq-answer">Saat ini Aidah didesain untuk keuangan pribadi. Fitur untuk UMKM dan bisnis kecil sedang dalam pengembangan.</div>
+        <summary class="faq-question">Apakah ada aplikasi mobile Android-nya?</summary>
+        <div class="faq-answer">
+          Ada! AIdah tersedia dalam bentuk APK Standalone untuk Android (dengan proteksi PIN & sensor sidik jari) serta versi Web yang responsif untuk penggunaan di browser laptop/PC.
+        </div>
       </details>
       <details class="faq-item">
-        <summary class="faq-question">Bagaimana cara mulai menggunakan Aidah?</summary>
-        <div class="faq-answer">Cukup daftar akun di website (30 detik), lalu langsung chat transaksimu. Tidak ada setup rumit — ketik "beli kopi 25rb" dan Aidah langsung catat.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">Saya orangnya malas catat keuangan, bisa pakai ini?</summary>
-        <div class="faq-answer">Justru Aidah dibuat untuk kamu. Tidak perlu buka form, pilih kategori, atau isi tanggal. Cukup ketik "kopi 25rb" — selesai. Lebih cepat dari bikin status WhatsApp.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">Aplikasi keuangan biasanya ribet, Aidah beda?</summary>
-        <div class="faq-answer">Beda total. Aidah tidak punya menu membingungkan atau form panjang. Semua lewat chat — kamu tinggal ngobrol seperti biasa, Aidah yang urus sisanya.</div>
-      </details>
-      <details class="faq-item">
-        <summary class="faq-question">Apa bedanya paket Gratis dan Pro?</summary>
-        <div class="faq-answer">Paket Gratis sudah mencakup fitur dasar: chat AI (50 pesan/hari), dashboard, budget manual, dan laporan dasar. Pro memberikan chat tanpa batas, budget otomatis AI, Tabungan Impian, laporan lengkap, export data, dan priority support.</div>
+        <summary class="faq-question">Bagaimana cara mengaktifkan akun setelah bayar?</summary>
+        <div class="faq-answer">
+          Setelah scan QRIS di halaman Traktir Kopi, unggah bukti pembayaran di form konfirmasi. Akses akunmu akan langsung diaktifkan.
+        </div>
       </details>
     </div>
   </div>
 </section>
 
 <style>
-  .faq{padding:80px 0;background:var(--bg)}
-  .faq-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:12px}
-  .faq-item{background:var(--surface);border:2px solid var(--ink);border-radius:var(--radius);box-shadow:var(--shadow-bold);transition:var(--transition);overflow:hidden}
-  .faq-item:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 var(--ink)}
-  .faq-item[open]{background:var(--blue-50)}
-  .faq-question{padding:18px 22px;font-size:15px;font-weight:800;color:var(--text);cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px;user-select:none}
-  .faq-question::-webkit-details-marker{display:none}
-  .faq-question::after{content:'+';font-size:20px;font-weight:900;color:var(--blue-500);flex-shrink:0;transition:transform 0.3s ease}
-  .faq-item[open] .faq-question::after{content:'−'}
-  .faq-answer{padding:0 22px 18px;font-size:14px;color:var(--muted);line-height:1.7;font-weight:600}
-  @media(max-width:480px){.faq-question{font-size:14px;padding:16px 18px}.faq-answer{padding:0 18px 16px;font-size:13px}}
+  .faq {
+    padding: 90px 0;
+    background: #FFFFFF;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-badge {
+    display: inline-block;
+    background: #DBEAFE;
+    border: 2px solid var(--ink);
+    color: var(--blue-800);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .section-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .highlight-inline {
+    background: #FEF08A;
+    padding: 0 6px;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: #475569;
+    font-weight: 600;
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .faq-item {
+    background: #EFF6FF;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius);
+    box-shadow: 4px 4px 0 var(--ink);
+    overflow: hidden;
+    transition: var(--transition);
+  }
+  .faq-item[open] {
+    background: #FFFFFF;
+  }
+  .faq-question {
+    padding: 18px 22px;
+    font-size: 15.5px;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-question::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--blue-600);
+    flex-shrink: 0;
+  }
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+  .faq-answer {
+    padding: 0 22px 20px;
+    font-size: 14px;
+    color: #334155;
+    line-height: 1.7;
+    font-weight: 600;
+  }
+  @media (max-width: 480px) {
+    .faq-question {
+      font-size: 14px;
+      padding: 16px 18px;
+    }
+    .faq-answer {
+      padding: 0 18px 16px;
+      font-size: 13px;
+    }
+  }
 </style>

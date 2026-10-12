@@ -1,42 +1,196 @@
-<section class="problem" id="problem">
+<section class="comparison-section" id="komparasi">
   <div class="section-container">
     <div class="section-header">
-      <span class="section-badge">Kenalan Dulu</span>
-      <h2 class="section-title">Pernah merasa <span class="gradient-text">begini?</span></h2>
-      <p class="section-desc">Kalau salah satu terasa familiar, kamu butuh cara baru.</p>
+      <span class="section-badge">Komparasi Riil</span>
+      <h2 class="section-title">Kenapa metode biasa <span class="highlight-inline">selalu gagal konsisten?</span></h2>
+      <p class="section-desc">Bukan kamu yang kurang disiplin. Metodenya yang terlalu banyak langkah dan bikin malas.</p>
     </div>
-    <div class="problem-grid">
-      <div class="problem-card">
-        <span class="problem-icon">💸</span>
-        <h3 class="problem-title">Uang Habis Misterius</h3>
-        <p class="problem-desc">Gaji baru masuk tanggal 25, tanggal 5 sudah tipis — kemana aja?</p>
+
+    <div class="comparison-grid">
+      <!-- Sisi Aplikasi Konvensional -->
+      <div class="compare-card compare-old">
+        <div class="card-status-badge status-bad">❌ Cara Lama / Aplikasi Konvensional</div>
+        <h3 class="card-title">Terlalu Banyak Klik & Form</h3>
+        
+        <ul class="step-flow">
+          <li class="flow-item">
+            <span class="step-bullet">1</span>
+            <div><strong>Buka aplikasi:</strong> Tunggu loading splash & iklan.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet">2</span>
+            <div><strong>Cari tombol tambah:</strong> Muncul form bertumpuk.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet">3</span>
+            <div><strong>Isi kolom satu per satu:</strong> Nominal, tanggal, dropdown kategori, dompet sumber dana.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet">4</span>
+            <div><strong>Hasilnya:</strong> Berdiri lama di kasir, seminggu kemudian malas dan berhenti mencatat.</div>
+          </li>
+        </ul>
       </div>
-      <div class="problem-card">
-        <span class="problem-icon">😴</span>
-        <h3 class="problem-title">Males Catat Manual</h3>
-        <p class="problem-desc">Niat catat pengeluaran, tapi buka spreadsheet aja sudah males duluan.</p>
-      </div>
-      <div class="problem-card">
-        <span class="problem-icon">😵‍💫</span>
-        <h3 class="problem-title">App Keuangan Ribet</h3>
-        <p class="problem-desc">Sudah download 3 aplikasi keuangan, semuanya terlalu ribet dan akhirnya ditinggal.</p>
-      </div>
-      <div class="problem-card">
-        <span class="problem-icon">🎯</span>
-        <h3 class="problem-title">Gagal Nabung Terus</h3>
-        <p class="problem-desc">Punya niat nabung tapi selalu gagal konsisten. Akhir bulan selalu bertanya: "Uangku habis ke mana ya?"</p>
+
+      <!-- Sisi AIdah -->
+      <div class="compare-card compare-aidah">
+        <div class="card-status-badge status-good">✅ Cara AIdah (Cukup Kirim Pesan)</div>
+        <h3 class="card-title">Selesai Sebelum Selesai Bayar</h3>
+        
+        <ul class="step-flow">
+          <li class="flow-item">
+            <span class="step-bullet step-good">1</span>
+            <div><strong>Buka chat:</strong> Ketik santai, misalnya <em>"kopi susu 18rb"</em>.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet step-good">2</span>
+            <div><strong>AI memahami:</strong> Nominal Rp 18.000 otomatis masuk pos Makan & Minum.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet step-good">3</span>
+            <div><strong>Tersimpan instan:</strong> Sisa budget langsung terhitung detik itu juga.</div>
+          </li>
+          <li class="flow-item">
+            <span class="step-bullet step-good">4</span>
+            <div><strong>Hasilnya:</strong> Catatan keuangan selalu rapi setiap hari tanpa beban pikiran.</div>
+          </li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
 <style>
-  .problem{padding:80px 0;background:var(--surface)}
-  .problem-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-  .problem-card{background:var(--bg);border:2px solid var(--ink);border-radius:var(--radius);padding:28px 24px;transition:var(--transition);box-shadow:var(--shadow-bold)}
-  .problem-card:hover{transform:translate(-2px,-2px);box-shadow:6px 6px 0 var(--ink)}
-  .problem-icon{font-size:32px;display:block;margin-bottom:12px}
-  .problem-title{font-size:17px;font-weight:900;margin-bottom:6px;color:var(--text)}
-  .problem-desc{font-size:13px;color:var(--muted);line-height:1.7;font-weight:600}
-  @media(max-width:768px){.problem-grid{grid-template-columns:1fr}}
+  .comparison-section {
+    padding: 90px 0;
+    background: #FFFFFF;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .section-badge {
+    display: inline-block;
+    background: #DBEAFE;
+    border: 2px solid var(--ink);
+    color: var(--blue-800);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .section-title {
+    font-size: clamp(26px, 3.5vw, 40px);
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .highlight-inline {
+    background: #FEF08A;
+    padding: 0 6px;
+    border: 1.5px solid var(--ink);
+    border-radius: 6px;
+    display: inline-block;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: #475569;
+    font-weight: 600;
+    max-width: 580px;
+    margin: 0 auto;
+  }
+  .comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 28px;
+  }
+  .compare-card {
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 32px 28px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .compare-old {
+    background: #FFF1F2;
+  }
+  .compare-aidah {
+    background: #EFF6FF;
+  }
+  .card-status-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px 12px;
+    border-radius: 99px;
+    border: 1.5px solid var(--ink);
+    margin-bottom: 16px;
+  }
+  .status-bad {
+    background: #FFE4E6;
+    color: #9F1239;
+  }
+  .status-good {
+    background: #DCFCE7;
+    color: #166534;
+  }
+  .card-title {
+    font-size: 20px;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .step-flow {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .flow-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #334155;
+  }
+  .flow-item strong {
+    color: var(--ink);
+  }
+  .step-bullet {
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    background: #FDA4AF;
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-good {
+    background: #86EFAC;
+  }
+
+  @media (max-width: 768px) {
+    .comparison-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .compare-card {
+      padding: 24px 20px;
+    }
+  }
 </style>

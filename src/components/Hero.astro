@@ -1,64 +1,98 @@
 <section class="hero" id="hero">
-  <div class="hero-bg">
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-  </div>
   <div class="hero-container">
-    <div>
+    <div class="hero-copy">
       <div class="hero-badge">
         <span class="badge-dot"></span>
-        <span>Powered by AI — Gratis untuk semua</span>
+        <span>Akses Penuh • Cukup Traktir Gw Kopi</span>
       </div>
       <h1 class="hero-title">
-        Ketik <span class="gradient-text">"kopi 25rb"</span><br />
-        Keuanganmu Langsung Tercatat
+        Ketik <span class="highlight-text">"kopi 25rb"</span><br />
+        Keuangan Langsung Rapi
       </h1>
       <p class="hero-subtitle">
-        Aidah adalah asisten AI yang paham bahasa sehari-hari kamu. Catat transaksi, atur budget, dan pantau keuangan — <strong>cukup dengan chat</strong>.
+        Asisten keuangan pribadi berbasis chat. Tanpa form berbelit, tanpa spreadsheet. Cukup kirim pesan singkat, sistem otomatis mencatat dan mengelompokkan saldo.
       </p>
       <div class="hero-actions">
-        <a href="https://app.aidah.web.id/register" class="btn-primary btn-lg">
-          <span>Mulai Gratis</span>
+        <a href="/traktir-kopi" class="btn-primary btn-lg">
+          <span>Buka Akses Sekarang</span>
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
-        <a href="#how-it-works" class="btn-secondary btn-lg">
-          <span>Lihat Demo</span>
+        <a href="#komparasi" class="btn-secondary btn-lg">
+          <span>Kenapa AIdah Beda?</span>
         </a>
       </div>
       <div class="hero-stats">
-        <div class="stat-item"><span class="stat-number">500+</span><span class="stat-label">Pengguna</span></div>
+        <div class="stat-item">
+          <span class="stat-number">&lt; 3 Detik</span>
+          <span class="stat-label">Waktu catat via chat</span>
+        </div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><span class="stat-number">10rb+</span><span class="stat-label">Transaksi Tercatat</span></div>
+        <div class="stat-item">
+          <span class="stat-number">0 Form</span>
+          <span class="stat-label">Tanpa dropdown manual</span>
+        </div>
         <div class="stat-divider"></div>
-        <div class="stat-item"><span class="stat-number">100%</span><span class="stat-label">Gratis</span></div>
+        <div class="stat-item">
+          <span class="stat-number">1 Cup Kopi</span>
+          <span class="stat-label">Akses penuh tanpa SaaS mahal</span>
+        </div>
       </div>
     </div>
+
     <div class="hero-preview">
-      <div class="preview-window">
-        <div class="preview-header">
-          <div class="preview-dots"><span></span><span></span><span></span></div>
-          <span class="preview-title">Aidah Chat</span>
-        </div>
-        <div class="preview-chat">
-          <div class="chat-msg chat-user"><div class="msg-bubble msg-user-bubble">gaji masuk 8jt</div></div>
-          <div class="chat-msg chat-ai">
-            <div class="ai-avatar-sm">🐠</div>
-            <div class="msg-bubble msg-ai-bubble">
-              <div class="msg-parsed">
-                <span class="parsed-badge parsed-income">💰 Pemasukan</span>
-                <div class="parsed-detail"><span class="parsed-label">Nominal</span><span class="parsed-value">Rp 8.000.000</span></div>
-                <div class="parsed-detail"><span class="parsed-label">Kategori</span><span class="parsed-value">Gaji</span></div>
-              </div>
-              Tercatat! Saldo bulan ini +Rp 8.000.000 🎉
-            </div>
+      <div class="chat-mockup">
+        <div class="chat-mockup-header">
+          <div class="header-avatar">🐠</div>
+          <div class="header-info">
+            <div class="header-name">Nemo AI</div>
+            <div class="header-status">online • asisten finansial</div>
           </div>
-          <div class="chat-msg chat-user"><div class="msg-bubble msg-user-bubble">nabung 15% dari gaji</div></div>
-          <div class="chat-msg chat-ai">
-            <div class="ai-avatar-sm">🐠</div>
-            <div class="msg-bubble msg-ai-bubble">
-              Budget <strong>Tabungan</strong> dibuat: <strong>Rp 1.200.000</strong>/bulan (15% × 8jt) ✅
+          <span class="header-badge">AIdah Chat</span>
+        </div>
+
+        <div class="chat-mockup-body">
+          <div class="msg-row msg-row-user">
+            <div class="bubble bubble-user">makan bakso 25rb</div>
+            <span class="msg-time">12:30</span>
+          </div>
+
+          <div class="msg-row msg-row-ai">
+            <div class="bubble bubble-ai">
+              <div class="parsed-card">
+                <div class="parsed-header">
+                  <span class="parsed-tag">📋 Pengeluaran</span>
+                  <span class="parsed-amount">-Rp 25.000</span>
+                </div>
+                <div class="parsed-meta">
+                  <span>Kategori: <strong>Makan & Minum</strong></span>
+                  <span>Catatan: makan bakso</span>
+                </div>
+              </div>
+              Tercatat! Sisa budget makan bulan ini: Rp 475.000.
             </div>
+            <span class="msg-time">12:30</span>
+          </div>
+
+          <div class="msg-row msg-row-user">
+            <div class="bubble bubble-user">gaji bulanan masuk 8jt</div>
+            <span class="msg-time">12:32</span>
+          </div>
+
+          <div class="msg-row msg-row-ai">
+            <div class="bubble bubble-ai">
+              <div class="parsed-card income-card">
+                <div class="parsed-header">
+                  <span class="parsed-tag tag-income">💰 Pemasukan</span>
+                  <span class="parsed-amount text-income">+Rp 8.000.000</span>
+                </div>
+                <div class="parsed-meta">
+                  <span>Kategori: <strong>Gaji</strong></span>
+                  <span>Alokasi otomatis: 10% Tabungan Impian</span>
+                </div>
+              </div>
+              Pemasukan tersimpan. Saldo aktif bertambah!
+            </div>
+            <span class="msg-time">12:32</span>
           </div>
         </div>
       </div>
@@ -66,77 +100,245 @@
   </div>
 </section>
 
-<script>
-  const chatMessages = document.querySelectorAll('.preview-chat .chat-msg');
-  chatMessages.forEach((msg, i) => {
-    (msg as HTMLElement).style.animationDelay = `${i * 0.8}s`;
-  });
-</script>
-
 <style>
-  .hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:110px 0 60px;overflow:hidden;background:var(--blue-500)}
-  .hero-bg{position:absolute;inset:0;pointer-events:none;overflow:hidden}
-  .hero-orb{position:absolute;border-radius:50%;opacity:0.25;animation:float 10s ease-in-out infinite}
-  .hero-orb-1{width:400px;height:400px;background:#93C5FD;top:-10%;left:-8%;animation-delay:0s}
-  .hero-orb-2{width:300px;height:300px;background:#BFDBFE;top:30%;right:-5%;animation-delay:-3s}
-  .hero-orb-3{width:250px;height:250px;background:#60A5FA;bottom:-5%;left:25%;animation-delay:-6s}
-  @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(20px,-20px)}}
-  .hero::before{content:'';position:absolute;bottom:0;left:0;right:0;height:80px;background:var(--bg);border-radius:40px 40px 0 0;z-index:3}
-  .hero-container{max-width:1100px;margin:0 auto;padding:0 24px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;z-index:2}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.2);border:1.5px solid rgba(255,255,255,0.35);border-radius:99px;padding:6px 16px 6px 10px;font-size:13px;font-weight:700;color:#fff;margin-bottom:20px;width:fit-content}
-  .badge-dot{width:8px;height:8px;border-radius:50%;background:#DCFCE7;animation:pulse 2s infinite}
-  @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
-  .hero-title{font-size:clamp(32px,5vw,52px);font-weight:900;line-height:1.1;letter-spacing:-1px;margin-bottom:16px;color:#fff}
-  .hero-title .gradient-text{color:#fff;text-shadow:0 2px 8px rgba(0,0,0,0.1)}
-  .hero-subtitle{font-size:16px;color:var(--blue-100);line-height:1.7;max-width:480px;margin-bottom:28px}
-  .hero-subtitle strong{color:#fff;font-weight:800}
-  .hero-actions{display:flex;gap:12px;margin-bottom:36px;flex-wrap:wrap}
-  .hero .btn-primary{background:#fff;color:var(--blue-600);border-color:var(--ink)}
-  .hero .btn-primary svg{stroke:var(--blue-600)}
-  .hero .btn-secondary{background:rgba(255,255,255,0.15);color:#fff;border-color:rgba(255,255,255,0.4);box-shadow:none}
-  .hero .btn-secondary:hover{background:rgba(255,255,255,0.25)}
-  .hero-stats{display:flex;align-items:center;gap:20px}
-  .stat-item{display:flex;flex-direction:column;align-items:center}
-  .stat-number{font-size:22px;font-weight:900;color:#fff}
-  .stat-label{font-size:11px;color:var(--blue-200);font-weight:700;margin-top:2px}
-  .stat-divider{width:1px;height:32px;background:rgba(255,255,255,0.25)}
-  .hero-preview{position:relative}
-  .preview-window{background:var(--surface);border:2.5px solid var(--ink);border-radius:var(--radius-lg);overflow:hidden;box-shadow:6px 6px 0 var(--ink);animation:slideUp 0.6s ease-out}
-  @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-  .preview-header{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--blue-50);border-bottom:2px solid var(--ink)}
-  .preview-dots{display:flex;gap:6px}
-  .preview-dots span{width:11px;height:11px;border-radius:50%;border:1.5px solid var(--ink)}
-  .preview-dots span:first-child{background:#F87171}
-  .preview-dots span:nth-child(2){background:#FBBF24}
-  .preview-dots span:last-child{background:#4ADE80}
-  .preview-title{font-size:13px;font-weight:800;color:var(--text);margin-left:auto;margin-right:auto}
-  .preview-chat{padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--blue-50)}
-  .chat-msg{display:flex;gap:8px;animation:msgIn 0.5s ease-out both}
-  .chat-user{justify-content:flex-end}
-  .chat-ai{align-items:flex-start}
-  @keyframes msgIn{from{opacity:0;transform:translateY(8px)}}
-  .msg-bubble{padding:10px 14px;border-radius:18px;font-size:13px;line-height:1.5;font-weight:600;max-width:85%}
-  .msg-user-bubble{background:var(--blue-500);color:#fff;border-bottom-right-radius:5px}
-  .msg-ai-bubble{background:#fff;border:2px solid var(--ink);color:var(--text);border-bottom-left-radius:5px;box-shadow:2px 2px 0 var(--ink)}
-  .ai-avatar-sm{width:28px;height:28px;border-radius:50%;background:var(--blue-500);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;margin-top:2px;border:2px solid var(--blue-200);color:#fff}
-  .msg-parsed{background:var(--blue-50);border:1.5px solid var(--border);border-radius:12px;padding:10px 12px;margin-bottom:8px}
-  .parsed-badge{display:inline-flex;font-size:11px;font-weight:800;padding:3px 10px;border-radius:99px;margin-bottom:6px}
-  .parsed-income{background:var(--income-bg);color:var(--income-text)}
-  .parsed-detail{display:flex;justify-content:space-between;align-items:center;padding:3px 0}
-  .parsed-label{font-size:11px;color:var(--muted);font-weight:600}
-  .parsed-value{font-size:13px;font-weight:800;color:var(--text)}
-  @media(max-width:1024px){
-    .hero-container{grid-template-columns:1fr;text-align:center;gap:36px}
-    .hero-subtitle{margin-left:auto;margin-right:auto}
-    .hero-actions{justify-content:center}
-    .hero-stats{justify-content:center}
-    .hero-preview{max-width:420px;margin:0 auto}
+  .hero {
+    position: relative;
+    padding: 130px 0 80px;
+    background: var(--bg);
+    border-bottom: 2px solid var(--ink);
   }
-  @media(max-width:768px){.hero{padding:100px 0 80px}}
-  @media(max-width:480px){
-    .hero-stats{flex-direction:column;gap:10px}
-    .stat-divider{width:40px;height:1px;background:rgba(255,255,255,0.25)}
-    .hero-actions{flex-direction:column;align-items:stretch}
-    .hero-actions .btn-lg{justify-content:center}
+  .hero-container {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .hero-copy {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: 99px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 20px;
+    width: fit-content;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #16A34A;
+  }
+  .hero-title {
+    font-size: clamp(34px, 4.5vw, 54px);
+    font-weight: 900;
+    line-height: 1.12;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+  .highlight-text {
+    background: #FEF08A;
+    padding: 2px 8px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    box-shadow: 3px 3px 0 var(--ink);
+    color: var(--ink);
+    display: inline-block;
+  }
+  .hero-subtitle {
+    font-size: 16.5px;
+    color: #334155;
+    line-height: 1.7;
+    max-width: 500px;
+    margin-bottom: 30px;
+    font-weight: 600;
+  }
+  .hero-actions {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+  .hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-top: 24px;
+    border-top: 2px dashed var(--border);
+  }
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-number {
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--blue-700);
+    letter-spacing: -0.5px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 700;
+  }
+  .stat-divider {
+    width: 2px;
+    height: 34px;
+    background: var(--border);
+  }
+
+  .chat-mockup {
+    background: #FFFFFF;
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius-lg);
+    box-shadow: 8px 8px 0 var(--ink);
+    overflow: hidden;
+  }
+  .chat-mockup-header {
+    background: #EFF6FF;
+    border-bottom: 2px solid var(--ink);
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 19px;
+    background: #FFFFFF;
+    border: 2px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  .header-info {
+    flex: 1;
+  }
+  .header-name {
+    font-size: 15px;
+    font-weight: 900;
+    color: var(--ink);
+  }
+  .header-status {
+    font-size: 11px;
+    color: #16A34A;
+    font-weight: 700;
+  }
+  .header-badge {
+    font-size: 11px;
+    font-weight: 800;
+    background: #DBEAFE;
+    color: var(--blue-800);
+    border: 1.5px solid var(--ink);
+    padding: 3px 10px;
+    border-radius: 99px;
+  }
+  .chat-mockup-body {
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background: #F8FAFC;
+  }
+  .msg-row {
+    display: flex;
+    flex-direction: column;
+  }
+  .msg-row-user {
+    align-items: flex-end;
+  }
+  .msg-row-ai {
+    align-items: flex-start;
+  }
+  .bubble {
+    max-width: 86%;
+    padding: 12px 16px;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid var(--ink);
+  }
+  .bubble-user {
+    background: #3B82F6;
+    color: #FFFFFF;
+    border-radius: 18px 18px 4px 18px;
+    font-weight: 700;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .bubble-ai {
+    background: #FFFFFF;
+    color: var(--ink);
+    border-radius: 18px 18px 18px 4px;
+    font-weight: 600;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .msg-time {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    margin-top: 4px;
+    padding: 0 4px;
+  }
+  .parsed-card {
+    background: #EFF6FF;
+    border: 1.5px solid var(--ink);
+    border-radius: 12px;
+    padding: 10px 12px;
+    margin-bottom: 8px;
+  }
+  .income-card {
+    background: #DCFCE7;
+  }
+  .parsed-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 6px;
+    border-bottom: 1px dashed rgba(0,0,0,0.15);
+    padding-bottom: 4px;
+  }
+  .parsed-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .parsed-amount {
+    font-size: 13.5px;
+    font-weight: 900;
+    color: #DC2626;
+  }
+  .text-income {
+    color: #16A34A;
+  }
+  .parsed-meta {
+    display: flex;
+    flex-direction: column;
+    font-size: 11.5px;
+    color: #475569;
+    gap: 2px;
+  }
+
+  @media (max-width: 900px) {
+    .hero-container {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .hero {
+      padding: 100px 0 60px;
+    }
   }
 </style>
