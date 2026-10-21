@@ -45,18 +45,20 @@
           <div class="header-avatar">🐠</div>
           <div class="header-info">
             <div class="header-name">Nemo AI</div>
-            <div class="header-status">online • asisten finansial</div>
+            <div class="header-status" id="chat-status">online • asisten finansial</div>
           </div>
           <span class="header-badge">AIdah Chat</span>
         </div>
 
-        <div class="chat-mockup-body">
-          <div class="msg-row msg-row-user">
+        <div class="chat-mockup-body" id="chat-body">
+          <!-- Message 1: User -->
+          <div class="msg-row msg-row-user msg-anim" id="msg-1">
             <div class="bubble bubble-user">makan bakso 25rb</div>
             <span class="msg-time">12:30</span>
           </div>
 
-          <div class="msg-row msg-row-ai">
+          <!-- Message 2: AI Reply -->
+          <div class="msg-row msg-row-ai msg-anim" id="msg-2">
             <div class="bubble bubble-ai">
               <div class="parsed-card">
                 <div class="parsed-header">
@@ -68,17 +70,22 @@
                   <span>Catatan: makan bakso</span>
                 </div>
               </div>
-              Tercatat! Sisa budget makan bulan ini: Rp 475.000.
+              <div class="bubble-reply-text">
+                <span>Tercatat! Sisa budget makan bulan ini: Rp 475.000.</span>
+                <span class="badge-saved">✓ Tersimpan</span>
+              </div>
             </div>
             <span class="msg-time">12:30</span>
           </div>
 
-          <div class="msg-row msg-row-user">
+          <!-- Message 3: User -->
+          <div class="msg-row msg-row-user msg-anim" id="msg-3">
             <div class="bubble bubble-user">gaji bulanan masuk 8jt</div>
             <span class="msg-time">12:32</span>
           </div>
 
-          <div class="msg-row msg-row-ai">
+          <!-- Message 4: AI Reply -->
+          <div class="msg-row msg-row-ai msg-anim" id="msg-4">
             <div class="bubble bubble-ai">
               <div class="parsed-card income-card">
                 <div class="parsed-header">
@@ -90,9 +97,34 @@
                   <span>Alokasi otomatis: 10% Tabungan Impian</span>
                 </div>
               </div>
-              Pemasukan tersimpan. Saldo aktif bertambah!
+              <div class="bubble-reply-text">
+                <span>Pemasukan tersimpan. Saldo aktif bertambah!</span>
+                <span class="badge-saved badge-saved-income">✓ Saldo Terupdate</span>
+              </div>
             </div>
             <span class="msg-time">12:32</span>
+          </div>
+
+          <!-- Typing Indicator -->
+          <div class="msg-row msg-row-ai typing-indicator-row" id="anim-typing-indicator" style="display: none;">
+            <div class="bubble bubble-ai bubble-typing">
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+              <span class="typing-dot"></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chat Mockup Input Bar -->
+        <div class="chat-mockup-input-bar">
+          <div class="chat-fake-input">
+            <span id="anim-input-text"></span><span class="anim-cursor"></span>
+          </div>
+          <div class="chat-send-btn" id="anim-send-btn" aria-label="Kirim Pesan">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
           </div>
         </div>
       </div>
@@ -258,11 +290,22 @@
     border-radius: 99px;
   }
   .chat-mockup-body {
-    padding: 20px 18px;
+    padding: 18px 16px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 14px;
     background: #F8FAFC;
+    height: 410px;
+    min-height: 410px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+  }
+  .chat-mockup-body::-webkit-scrollbar {
+    width: 4px;
+  }
+  .chat-mockup-body::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 99px;
   }
   .msg-row {
     display: flex;
@@ -273,6 +316,27 @@
   }
   .msg-row-ai {
     align-items: flex-start;
+  }
+  .msg-anim {
+    display: none;
+    opacity: 0;
+    transform: translateY(14px) scale(0.96);
+  }
+  .msg-anim.is-shown {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    animation: popInMsg 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+  @keyframes popInMsg {
+    0% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.95);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
   }
   .bubble {
     max-width: 86%;
@@ -296,34 +360,39 @@
     box-shadow: 2px 2px 0 var(--ink);
   }
   .msg-time {
-    font-size: 10px;
-    font-weight: 700;
-    color: var(--muted);
-    margin-top: 4px;
+    font-size: 10.5px;
+    color: #94A3B8;
+    margin-top: 3px;
     padding: 0 4px;
+    font-weight: 600;
   }
   .parsed-card {
-    background: #EFF6FF;
-    border: 1.5px solid var(--ink);
+    background: #F8FAFC;
+    border: 1.5px solid var(--border);
     border-radius: 12px;
     padding: 10px 12px;
     margin-bottom: 8px;
   }
-  .income-card {
-    background: #DCFCE7;
+  .parsed-card.income-card {
+    background: #F0FDF4;
+    border-color: #86EFAC;
   }
   .parsed-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 6px;
-    border-bottom: 1px dashed rgba(0,0,0,0.15);
+    border-bottom: 1px dashed rgba(0, 0, 0, 0.15);
     padding-bottom: 4px;
+    gap: 8px;
   }
   .parsed-tag {
     font-size: 11px;
     font-weight: 800;
     color: var(--ink);
+  }
+  .tag-income {
+    color: #166534;
   }
   .parsed-amount {
     font-size: 13.5px;
@@ -340,44 +409,450 @@
     color: #475569;
     gap: 2px;
   }
+  .typing-indicator-row {
+    margin-bottom: 4px;
+  }
+  .bubble-typing {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 10px 14px;
+    background: #FFFFFF;
+    border-radius: 16px 16px 16px 4px;
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .typing-dot {
+    width: 6.5px;
+    height: 6.5px;
+    background: #94A3B8;
+    border-radius: 50%;
+    animation: typingBounce 1.2s infinite ease-in-out;
+  }
+  .typing-dot:nth-child(1) { animation-delay: 0s; }
+  .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+  .typing-dot:nth-child(3) { animation-delay: 0.4s; }
 
-  @media (max-width: 900px) {
+  @keyframes typingBounce {
+    0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+    30% { transform: translateY(-5px); opacity: 1; background: #3B82F6; }
+  }
+
+  .bubble-reply-text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    flex-wrap: wrap;
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .badge-saved {
+    font-size: 11px;
+    font-weight: 800;
+    color: #166534;
+    background: #DCFCE7;
+    border: 1px solid #16A34A;
+    padding: 2px 7px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+  }
+  .badge-saved-income {
+    color: #1E40AF;
+    background: #DBEAFE;
+    border-color: #3B82F6;
+  }
+
+  /* Input Bar Mockup */
+  .chat-mockup-input-bar {
+    background: #FFFFFF;
+    border-top: 2px solid var(--ink);
+    padding: 10px 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .chat-fake-input {
+    flex: 1;
+    background: #F1F5F9;
+    border: 1.5px solid var(--border);
+    border-radius: 99px;
+    padding: 8px 16px;
+    font-size: 13.5px;
+    color: var(--ink);
+    font-weight: 700;
+    min-height: 38px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.2px;
+  }
+  .anim-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 16px;
+    background: var(--blue-600);
+    margin-left: 2px;
+    animation: blinkCursor 0.8s infinite;
+  }
+  @keyframes blinkCursor {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+  .chat-send-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background: #3B82F6;
+    color: #FFFFFF;
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.15s ease, background 0.15s ease;
+    cursor: default;
+  }
+  .chat-send-btn.btn-active {
+    transform: scale(0.85);
+    background: #1D4ED8;
+  }
+  .chat-send-btn svg {
+    margin-left: 1px;
+  }
+
+  /* Responsive Media Queries */
+  @media (max-width: 960px) {
+    .hero {
+      padding: 100px 0 56px;
+    }
     .hero-container {
       grid-template-columns: 1fr;
       gap: 36px;
-      padding: 0 16px;
+      padding: 0 20px;
     }
-    .hero {
-      padding: 90px 0 50px;
+    .hero-copy {
+      align-items: flex-start;
+      max-width: 100%;
+    }
+    .hero-subtitle {
+      max-width: 100%;
+    }
+    .hero-preview {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .chat-mockup-body {
+      height: 380px;
+      min-height: 380px;
     }
   }
-  @media (max-width: 520px) {
+
+  @media (max-width: 580px) {
+    .hero {
+      padding: 85px 0 45px;
+    }
+    .hero-container {
+      padding: 0 16px;
+      gap: 28px;
+    }
+    .hero-badge {
+      font-size: 12px;
+      padding: 5px 14px;
+      margin-bottom: 14px;
+    }
+    .hero-title {
+      font-size: clamp(26px, 7.2vw, 36px);
+      letter-spacing: -0.6px;
+      margin-bottom: 14px;
+    }
+    .highlight-text {
+      padding: 2px 6px;
+      border-radius: 6px;
+      box-shadow: 2px 2px 0 var(--ink);
+    }
+    .hero-subtitle {
+      font-size: 15px;
+      line-height: 1.6;
+      margin-bottom: 22px;
+    }
     .hero-actions {
       flex-direction: column;
+      width: 100%;
+      gap: 10px;
+      margin-bottom: 12px;
     }
     .hero-actions .btn-lg {
       width: 100%;
       justify-content: center;
+      font-size: 15px;
+      padding: 13px 20px;
+    }
+    .hero-apk-note {
+      font-size: 11.5px;
+      margin-bottom: 20px;
     }
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
+      gap: 8px;
+      padding-top: 18px;
     }
     .stat-divider {
       display: none;
     }
+    .stat-item {
+      text-align: center;
+      align-items: center;
+    }
     .stat-number {
-      font-size: 18px;
+      font-size: clamp(16px, 4.2vw, 19px);
     }
     .stat-label {
-      font-size: 10.5px;
+      font-size: 10px;
+      line-height: 1.3;
     }
     .chat-mockup {
+      border-radius: 18px;
       box-shadow: 5px 5px 0 var(--ink);
     }
+    .chat-mockup-header {
+      padding: 10px 14px;
+      gap: 10px;
+    }
+    .header-avatar {
+      width: 32px;
+      height: 32px;
+      font-size: 17px;
+    }
+    .header-name {
+      font-size: 14px;
+    }
+    .header-status {
+      font-size: 10.5px;
+    }
+    .header-badge {
+      font-size: 10px;
+      padding: 2px 8px;
+    }
     .chat-mockup-body {
-      padding: 14px 12px;
+      height: 330px;
+      min-height: 330px;
+      padding: 12px 10px;
+      gap: 12px;
+    }
+    .bubble {
+      max-width: 90%;
+      padding: 10px 12px;
+      font-size: 13px;
+    }
+    .parsed-card {
+      padding: 8px 10px;
+      border-radius: 10px;
+      margin-bottom: 6px;
+    }
+    .parsed-tag {
+      font-size: 10.5px;
+    }
+    .parsed-amount {
+      font-size: 12.5px;
+    }
+    .parsed-meta {
+      font-size: 11px;
+    }
+    .bubble-reply-text {
+      font-size: 12px;
+    }
+    .badge-saved {
+      font-size: 9.5px;
+      padding: 2px 6px;
+    }
+    .chat-mockup-input-bar {
+      padding: 8px 10px;
+      gap: 8px;
+    }
+    .chat-fake-input {
+      min-height: 34px;
+      padding: 6px 12px;
+      font-size: 12px;
+    }
+    .chat-send-btn {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-container {
+      padding: 0 12px;
+    }
+    .hero-title {
+      font-size: 23px;
+    }
+    .hero-stats {
+      gap: 4px;
+    }
+    .stat-number {
+      font-size: 14px;
+    }
+    .stat-label {
+      font-size: 9px;
+    }
+    .chat-mockup-body {
+      height: 295px;
+      min-height: 295px;
     }
   }
 </style>
+
+<script>
+  const setupChatAnimation = () => {
+    const inputText = document.getElementById('anim-input-text');
+    const sendBtn = document.getElementById('anim-send-btn');
+    const typingIndicator = document.getElementById('anim-typing-indicator');
+    const chatStatus = document.getElementById('chat-status');
+    const chatBody = document.getElementById('chat-body');
+    const msg1 = document.getElementById('msg-1');
+    const msg2 = document.getElementById('msg-2');
+    const msg3 = document.getElementById('msg-3');
+    const msg4 = document.getElementById('msg-4');
+
+    if (!inputText || !sendBtn || !msg1 || !msg2 || !msg3 || !msg4 || !chatBody) return;
+
+    let isHovered = false;
+    const mockup = document.querySelector('.chat-mockup');
+    mockup?.addEventListener('mouseenter', () => { isHovered = true; });
+    mockup?.addEventListener('mouseleave', () => { isHovered = false; });
+
+    const sleep = (ms: number) => new Promise(resolve => {
+      const start = Date.now();
+      const interval = setInterval(() => {
+        if (!isHovered) {
+          if (Date.now() - start >= ms) {
+            clearInterval(interval);
+            resolve(true);
+          }
+        }
+      }, 40);
+    });
+
+    const scrollToBottom = () => {
+      if (chatBody) {
+        chatBody.scrollTo({
+          top: chatBody.scrollHeight,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    const typeString = async (text: string) => {
+      for (let i = 0; i <= text.length; i++) {
+        if (inputText) inputText.textContent = text.slice(0, i);
+        await sleep(50 + Math.random() * 30);
+      }
+    };
+
+    const runLoop = async () => {
+      while (true) {
+        // Initial / Reset state
+        if (inputText) inputText.textContent = '';
+        if (chatStatus) {
+          chatStatus.textContent = 'online • asisten finansial';
+          chatStatus.style.color = '#16A34A';
+        }
+        msg1.classList.remove('is-shown');
+        msg2.classList.remove('is-shown');
+        msg3.classList.remove('is-shown');
+        msg4.classList.remove('is-shown');
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        if (chatBody) chatBody.scrollTop = 0;
+
+        await sleep(700);
+
+        // 1. User types message 1
+        await typeString('makan bakso 25rb');
+        await sleep(350);
+
+        // Submit action
+        sendBtn.classList.add('btn-active');
+        await sleep(140);
+        sendBtn.classList.remove('btn-active');
+        if (inputText) inputText.textContent = '';
+
+        // User message 1 pops up
+        msg1.classList.add('is-shown');
+        scrollToBottom();
+        await sleep(400);
+
+        // Nemo AI starts thinking / typing
+        if (chatStatus) {
+          chatStatus.textContent = 'Nemo AI sedang mengetik...';
+          chatStatus.style.color = '#3B82F6';
+        }
+        if (typingIndicator) {
+          typingIndicator.style.display = 'flex';
+          scrollToBottom();
+        }
+        await sleep(1200);
+
+        // AI reply 1 appears
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        if (chatStatus) {
+          chatStatus.textContent = 'online • asisten finansial';
+          chatStatus.style.color = '#16A34A';
+        }
+        msg2.classList.add('is-shown');
+        scrollToBottom();
+        await sleep(1800);
+
+        // 2. User types message 2
+        await typeString('gaji bulanan masuk 8jt');
+        await sleep(350);
+
+        // Submit action
+        sendBtn.classList.add('btn-active');
+        await sleep(140);
+        sendBtn.classList.remove('btn-active');
+        if (inputText) inputText.textContent = '';
+
+        // User message 2 pops up
+        msg3.classList.add('is-shown');
+        scrollToBottom();
+        await sleep(400);
+
+        // Nemo AI starts typing
+        if (chatStatus) {
+          chatStatus.textContent = 'Nemo AI sedang mengetik...';
+          chatStatus.style.color = '#3B82F6';
+        }
+        if (typingIndicator) {
+          typingIndicator.style.display = 'flex';
+          scrollToBottom();
+        }
+        await sleep(1200);
+
+        // AI reply 2 appears
+        if (typingIndicator) typingIndicator.style.display = 'none';
+        if (chatStatus) {
+          chatStatus.textContent = 'online • asisten finansial';
+          chatStatus.style.color = '#16A34A';
+        }
+        msg4.classList.add('is-shown');
+        scrollToBottom();
+
+        // 3. Pause for reading (5.5s)
+        await sleep(5500);
+      }
+    };
+
+    runLoop();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupChatAnimation);
+  } else {
+    setupChatAnimation();
+  }
+</script>
