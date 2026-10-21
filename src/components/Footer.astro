@@ -6,7 +6,7 @@
           <img src="/AIdah.png" alt="Aidah" class="logo-img" />
         </a>
         <p class="footer-tagline">
-          Asisten keuangan pribadi berbasis chat. Dibuat oleh <a href="https://dymasyogaf.my.id" target="_blank" rel="noopener" class="author-link">Dymas Yoga Febratama</a>.
+          Catat pengeluaran harian dan kelola anggaran semudah kirim pesan chat.
         </p>
       </div>
       <div class="footer-links-group">
@@ -64,8 +64,25 @@
   .author-link:hover {
     color: var(--blue-900);
   }
-  .nav-logo{display:flex;align-items:center;gap:8px}
-  .logo-img{height:48px;width:auto;display:block;object-fit:contain;border-radius:var(--radius-sm)}
+  .nav-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #FFFFFF;
+    border: 2px solid var(--ink);
+    border-radius: var(--radius-sm);
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    padding: 3px 8px;
+    margin-bottom: 6px;
+    width: fit-content;
+    text-decoration: none;
+  }
+  .logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+  }
   @media(max-width:768px){
     .footer-top{flex-direction:column;gap:28px}
     .footer-links-group{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;width:100%}
