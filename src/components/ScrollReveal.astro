@@ -1,36 +1,46 @@
 <script>
-  // Scroll reveal animation
-  const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, observerOptions);
+  // High-performance passive Scroll Reveal
+  const initScrollReveal = () => {
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
 
-  document.querySelectorAll('.feature-card, .step-card, .testimonial-card, .pricing-plan, .faq-item, .cta-card, .problem-card, .solution-card, .benefit-card, .trust-card').forEach(el => {
-    (el as HTMLElement).style.opacity = '0';
-    (el as HTMLElement).style.transform = 'translateY(40px) scale(0.96)';
-    (el as HTMLElement).style.transition = 'opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1)';
-    observer.observe(el);
-  });
-
-  // Stagger animation for grid items
-  document.querySelectorAll('.features-grid, .testimonial-grid, .steps-grid, .faq-list, .problem-grid, .benefit-grid, .trust-grid, .pricing-grid').forEach(grid => {
-    const gridObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const children = entry.target.querySelectorAll('.feature-card, .step-card, .testimonial-card, .faq-item, .problem-card, .benefit-card, .trust-card, .pricing-plan');
-          children.forEach((child, i) => {
-            (child as HTMLElement).style.transitionDelay = `${i * 0.12}s`;
-            child.classList.add('revealed');
-          });
-          gridObserver.unobserve(entry.target);
+    const observer = new IntersectionObserver((entries, obs) => {
+      for (let i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('revealed');
+          obs.unobserve(entries[i].target);
         }
+      }
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+    // Use requestIdleCallback or requestAnimationFrame to prevent main thread blocking during page load
+    const scheduleObserve = window.requestIdleCallback || ((cb: () => void) => setTimeout(cb, 100));
+    scheduleObserve(() => {
+      const targets = document.querySelectorAll('.feature-card, .compare-card, .faq-item, .cta-card, .coffee-card, .step-item');
+      targets.forEach(el => {
+        el.classList.add('reveal-item');
+        observer.observe(el);
       });
-    }, { threshold: 0.05 });
-    gridObserver.observe(grid);
-  });
+    });
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollReveal);
+  } else {
+    initScrollReveal();
+  }
 </script>
+
+<style is:global>
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+  }
+  .reveal-item.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
