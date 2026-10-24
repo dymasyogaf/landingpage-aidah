@@ -7,12 +7,15 @@
         Hentikan kebiasaan malas mencatat karena aplikasi yang terlalu rumit. Cukup kirim chat santai seperti ke teman, dan biarkan AIdah yang mengurus pembukuanmu.
       </p>
       <div class="cta-actions">
-        <a href="https://github.com/dymasyogaf/landingpage-aidah/releases/latest/download/AIdah.apk" class="btn-xl cta-btn-apk" download="AIdah.apk">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-          <span>Download APK Android 📱</span>
+        <a href="https://app.aidah.web.id/open" class="btn-xl cta-btn-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          <span>Mulai Sekarang (Free Trial 7 Hari)</span>
+        </a>
+        <a href="#cara-pasang" class="btn-xl cta-btn-outline">
+          <span>📱 Pasang di HP (Android & iOS)</span>
         </a>
       </div>
-      <p class="cta-note">APK Resmi • Tanpa Iklan • Android 8.0+</p>
+      <p class="cta-note">Tersedia untuk Android (APK ~24 MB) & iPhone (Web App Safari) • Tanpa Iklan</p>
     </div>
   </div>
 </section>
@@ -83,7 +86,7 @@
   .cta-card .cta-btn svg {
     stroke: #1D4ED8;
   }
-  .cta-card .cta-btn-apk {
+  .cta-card .cta-btn-primary {
     background: #FEF08A;
     color: var(--ink);
     border: 2.5px solid var(--ink);
@@ -98,10 +101,30 @@
     gap: 10px;
     transition: var(--transition);
   }
-  .cta-card .cta-btn-apk:hover {
+  .cta-card .cta-btn-primary:hover {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0 var(--ink);
     background: #FDE047;
+  }
+  .cta-card .cta-btn-outline {
+    background: #FFFFFF;
+    color: var(--ink);
+    border: 2.5px solid var(--ink);
+    border-radius: var(--radius);
+    padding: 16px 28px;
+    font-size: 16px;
+    font-weight: 800;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: var(--transition);
+  }
+  .cta-card .cta-btn-outline:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0 var(--ink);
+    background: #F8FAFC;
   }
   .cta-note {
     font-size: 13px;
@@ -120,7 +143,7 @@
       padding: 36px 18px;
       box-shadow: 5px 5px 0 var(--ink);
     }
-    .cta-card .cta-btn-apk {
+    .cta-card .cta-btn-primary, .cta-card .cta-btn-outline {
       width: 100%;
       justify-content: center;
       font-size: 15px;

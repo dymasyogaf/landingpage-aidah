@@ -1,0 +1,536 @@
+---
+// InstallGuide.astro — Panduan Pasang Aplikasi AIdah untuk Android & iOS
+---
+
+<section class="install-section" id="cara-pasang">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-badge">Panduan Pasang</span>
+      <h2 class="section-title">
+        Gunakan AIdah di HP-mu, <span class="highlight-inline">hanya dalam 1 menit</span>
+      </h2>
+      <p class="section-desc">
+        Pilih sistem operasi ponselmu di bawah ini untuk panduan instalasi yang cepat dan mudah.
+      </p>
+    </div>
+
+    <!-- Segmented Tab Switcher -->
+    <div class="tab-switcher-wrapper">
+      <div class="tab-switcher">
+        <button type="button" id="lp-tab-android" class="tab-btn active">
+          <span class="tab-icon">🤖</span>
+          <span>Android (APK)</span>
+        </button>
+        <button type="button" id="lp-tab-ios" class="tab-btn">
+          <span class="tab-icon">🍎</span>
+          <span>iPhone (iOS Safari)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= ANDROID CONTENT ================= -->
+    <div id="lp-panel-android" class="install-panel active">
+      <div class="install-card">
+        <div class="card-top-bar">
+          <div class="os-identity">
+            <span class="os-icon">🤖</span>
+            <div>
+              <h3 class="os-title">Panduan Instalasi Android</h3>
+              <p class="os-subtitle">File installer mandiri (APK) • Ringan (~24 MB) • Android 8.0+</p>
+            </div>
+          </div>
+          <a href="https://app.aidah.web.id/api/download-apk" class="btn-quick-download" download="AIdah.apk">
+            <span>⬇️ Unduh APK</span>
+          </a>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-marker">1</div>
+            <h4 class="step-name">Unduh File APK</h4>
+            <p class="step-info">
+              Sentuh tombol unduh untuk mengambil file <b>AIdah.apk</b> resmi. Ukuran hanya ~24 MB.
+            </p>
+            <div class="step-action-row">
+              <a href="https://app.aidah.web.id/api/download-apk" class="btn-step-action" download="AIdah.apk">
+                ⬇️ Unduh AIdah.apk
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-marker">2</div>
+            <h4 class="step-name">Konfirmasi Browser</h4>
+            <p class="step-info">
+              Jika muncul peringatan <i>"File mungkin berbahaya"</i> di Chrome/Samsung, pilih <b>Tetap Download</b>.
+            </p>
+            <div class="step-tip-box tip-warning">
+              ⚠️ Ini peringatan standar Android untuk file APK di luar Play Store. File dijamin 100% aman.
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-marker">3</div>
+            <h4 class="step-name">Buka & Tekan "Instal"</h4>
+            <p class="step-info">
+              Buka file <b>AIdah.apk</b> dari notifikasi unduhan atau folder Downloads, lalu ketuk tombol <b>Instal</b>.
+            </p>
+            <div class="step-tip-box tip-info">
+              💡 Geser ke posisi <b>Izinkan</b> jika peramban meminta izin pasang aplikasi.
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-marker marker-green">✓</div>
+            <h4 class="step-name" style="color:#166534;">Selesai & Buka Aplikasi!</h4>
+            <p class="step-info">
+              Aplikasi AIdah sudah terpasang di layar utama HP-mu. Buka aplikasi dan mulai catat keuanganmu! 🐠
+            </p>
+            <div class="step-action-row">
+              <a href="https://app.aidah.web.id/open" class="btn-step-action btn-step-secondary">
+                🚀 Buka Peluncur Aplikasi
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= IOS CONTENT ================= -->
+    <div id="lp-panel-ios" class="install-panel">
+      <div class="install-card">
+        <div class="card-top-bar">
+          <div class="os-identity">
+            <span class="os-icon">🍎</span>
+            <div>
+              <h3 class="os-title">Panduan Pengguna iPhone (iOS)</h3>
+              <p class="os-subtitle">Web App Layar Penuh (PWA) • Tanpa File APK • Langsung Aktif</p>
+            </div>
+          </div>
+          <a href="https://app.aidah.web.id" target="_blank" rel="noopener" class="btn-quick-download">
+            <span>🌐 Buka di Safari</span>
+          </a>
+        </div>
+
+        <div class="ios-alert-banner">
+          ⚠️ <b>Penting:</b> Wajib dibuka menggunakan peramban bawaan <b>Safari</b> di iPhone agar opsi <i>"Add to Home Screen"</i> tersedia.
+        </div>
+
+        <div class="steps-grid">
+          <!-- Step 1 -->
+          <div class="step-card">
+            <div class="step-marker">1</div>
+            <h4 class="step-name">Buka Web di Safari</h4>
+            <p class="step-info">
+              Buka peramban <b>Safari</b> di iPhone dan akses alamat resmi <b>app.aidah.web.id</b>.
+            </p>
+            <div class="step-action-row">
+              <a href="https://app.aidah.web.id" target="_blank" rel="noopener" class="btn-step-action">
+                🌐 Buka app.aidah.web.id
+              </a>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-card">
+            <div class="step-marker">2</div>
+            <h4 class="step-name">Sentuh Tombol Share</h4>
+            <p class="step-info">
+              Di bilah menu bagian bawah layar Safari, sentuh tombol <b>Share</b> (ikon kotak dengan panah ke atas 📤).
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="step-card">
+            <div class="step-marker">3</div>
+            <h4 class="step-name">Pilih "Add to Home Screen"</h4>
+            <p class="step-info">
+              Gulir ke bawah pada menu opsi yang muncul, lalu pilih <b>"Tambahkan ke Layar Utama"</b> (➕).
+            </p>
+            <div class="step-tip-box tip-info">
+              💡 Menu ini akan menyematkan AIdah ke Home Screen seperti aplikasi native.
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="step-card">
+            <div class="step-marker marker-green">✓</div>
+            <h4 class="step-name" style="color:#166534;">Tekan "Tambah" di Kanan Atas</h4>
+            <p class="step-info">
+              Sentuh tombol <b>Tambah</b> di pojok kanan atas layar. Selesai!
+            </p>
+            <div class="step-tip-box tip-success">
+              ✨ AIdah akan berjalan layar penuh (<i>fullscreen</i> tanpa bar Safari), hemat memori, dan super responsif!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section Footer Link -->
+    <div class="install-footer-link">
+      <a href="https://app.aidah.web.id/install" class="interactive-guide-btn">
+        <span>📖 Buka Panduan Interaktif Lengkap di Web App</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .install-section {
+    padding: 90px 0;
+    background: #F8FAFC;
+    border-bottom: 2px solid var(--ink);
+  }
+  .section-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .section-badge {
+    display: inline-block;
+    background: #DBEAFE;
+    border: 2px solid var(--ink);
+    color: var(--blue-800);
+    font-size: 12px;
+    font-weight: 800;
+    padding: 4px 14px;
+    border-radius: 99px;
+    margin-bottom: 12px;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .section-title {
+    font-size: clamp(26px, 3.8vw, 38px);
+    font-weight: 900;
+    letter-spacing: -0.8px;
+    margin-bottom: 12px;
+    line-height: 1.25;
+    color: var(--ink);
+  }
+  .highlight-inline {
+    background: linear-gradient(180deg, transparent 65%, #FEF08A 65%);
+    padding: 0 4px;
+  }
+  .section-desc {
+    font-size: 15px;
+    color: var(--muted);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-weight: 600;
+  }
+
+  /* Tab Switcher */
+  .tab-switcher-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 28px;
+  }
+  .tab-switcher {
+    display: inline-flex;
+    background: #E2E8F0;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 4px;
+    gap: 6px;
+    box-shadow: 3px 3px 0 var(--ink);
+  }
+  .tab-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: transparent;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 800;
+    color: #64748B;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+  .tab-btn.active {
+    background: #FFFFFF;
+    color: var(--ink);
+    border: 1.5px solid var(--ink);
+    box-shadow: 1.5px 1.5px 0 var(--ink);
+  }
+  .tab-icon {
+    font-size: 16px;
+  }
+
+  /* Panels */
+  .install-panel {
+    display: none;
+  }
+  .install-panel.active {
+    display: block;
+  }
+
+  /* Main Card */
+  .install-card {
+    background: #FFFFFF;
+    border: 2.5px solid var(--ink);
+    border-radius: 24px;
+    padding: 32px 28px;
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+
+  .card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #F1F5F9;
+    padding-bottom: 20px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .os-identity {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .os-icon {
+    font-size: 32px;
+    width: 52px;
+    height: 52px;
+    background: #EFF6FF;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 0 var(--ink);
+  }
+  .os-title {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--ink);
+    margin: 0 0 4px;
+  }
+  .os-subtitle {
+    font-size: 12.5px;
+    color: var(--muted);
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .btn-quick-download {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--blue-500);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-weight: 800;
+    font-size: 13.5px;
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    transition: transform 0.1s ease;
+  }
+  .btn-quick-download:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .ios-alert-banner {
+    background: #FFFBEB;
+    border: 1.5px solid #FDE68A;
+    border-radius: 14px;
+    padding: 12px 16px;
+    font-size: 13px;
+    color: #92400E;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+
+  /* Steps Grid */
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .step-card {
+    background: #F8FAFC;
+    border: 2px solid #E2E8F0;
+    border-radius: 18px;
+    padding: 20px 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .step-marker {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--blue-500);
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--ink);
+    box-shadow: 1.5px 1.5px 0 var(--ink);
+    margin-bottom: 12px;
+  }
+  .marker-green {
+    background: #16A34A;
+  }
+  .step-name {
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--ink);
+    margin: 0 0 6px;
+    line-height: 1.3;
+  }
+  .step-info {
+    font-size: 12.5px;
+    color: #475569;
+    margin: 0 0 10px;
+    line-height: 1.55;
+    flex-grow: 1;
+  }
+  .step-action-row {
+    margin-top: auto;
+    padding-top: 6px;
+  }
+  .btn-step-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    background: var(--blue-500);
+    color: #FFFFFF !important;
+    text-decoration: none !important;
+    font-size: 13px;
+    font-weight: 800;
+    padding: 10px 14px;
+    border-radius: 10px;
+    border: 1.5px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    box-sizing: border-box;
+  }
+  .btn-step-secondary {
+    background: #FFFFFF;
+    color: var(--ink) !important;
+  }
+  .btn-step-action:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--ink);
+  }
+
+  .step-tip-box {
+    border-radius: 10px;
+    padding: 9px 11px;
+    font-size: 11.5px;
+    line-height: 1.45;
+    margin-top: auto;
+    border: 1px solid transparent;
+  }
+  .tip-warning {
+    background: #FFFBEB;
+    border-color: #FDE68A;
+    color: #92400E;
+  }
+  .tip-info {
+    background: #EFF6FF;
+    border-color: #BFDBFE;
+    color: #1E40AF;
+  }
+  .tip-success {
+    background: #F0FDF4;
+    border-color: #BBF7D0;
+    color: #166534;
+  }
+
+  /* Footer Link */
+  .install-footer-link {
+    margin-top: 32px;
+    text-align: center;
+  }
+  .interactive-guide-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #FFFFFF;
+    color: var(--ink) !important;
+    text-decoration: none !important;
+    font-size: 14px;
+    font-weight: 800;
+    padding: 12px 22px;
+    border-radius: 14px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    transition: transform 0.1s ease;
+  }
+  .interactive-guide-btn:active {
+    transform: translate(1.5px, 1.5px);
+    box-shadow: 1.5px 1.5px 0 var(--ink);
+  }
+
+  @media (max-width: 640px) {
+    .install-card {
+      padding: 24px 18px;
+    }
+    .card-top-bar {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .btn-quick-download {
+      width: 100%;
+      justify-content: center;
+    }
+    .steps-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  (function() {
+    const btnAndroid = document.getElementById('lp-tab-android');
+    const btnIos = document.getElementById('lp-tab-ios');
+    const panelAndroid = document.getElementById('lp-panel-android');
+    const panelIos = document.getElementById('lp-panel-ios');
+
+    function setTab(os: string) {
+      if (os === 'ios') {
+        btnIos?.classList.add('active');
+        btnAndroid?.classList.remove('active');
+        panelIos?.classList.add('active');
+        panelAndroid?.classList.remove('active');
+      } else {
+        btnAndroid?.classList.add('active');
+        btnIos?.classList.remove('active');
+        panelAndroid?.classList.add('active');
+        panelIos?.classList.remove('active');
+      }
+    }
+
+    btnAndroid?.addEventListener('click', () => setTab('android'));
+    btnIos?.addEventListener('click', () => setTab('ios'));
+
+    // Auto-detect OS dari User-Agent
+    const ua = navigator.userAgent || navigator.vendor || (window as any).opera || '';
+    if (/iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1)) {
+      setTab('ios');
+    } else {
+      setTab('android');
+    }
+  })();
+</script>
