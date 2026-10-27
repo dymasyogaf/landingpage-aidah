@@ -1,0 +1,1590 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="Guidebook Resmi AIdah — Panduan Lengkap Anti-Pusing Kelola Keuangan"
+  description="Buku panduan lengkap penggunaan AIdah dengan bahasa santai. Pelajari cara mencatat via chat, scan struk belanja, bikin budget anti-bocor, tabungan impian, hingga kunci PIN auto-lock."
+>
+  <main class="gb-page">
+    <!-- HERO GUIDEBOOK -->
+    <section class="gb-hero">
+      <div class="gb-container">
+        <div class="gb-badge-top">
+          <span class="badge-dot"></span>
+          <span>Buku Panduan Lengkap • AIdah Guidebook v1.0</span>
+        </div>
+        <h1 class="gb-title">
+          Kuasai Semua Fitur AIdah,<br />
+          <span class="highlight-yellow">Biar Duit Gak Ghaib Lagi! 💸</span>
+        </h1>
+        <p class="gb-subtitle">
+          Selamat datang di markas panduan AIdah, bray! Di sini kita bedah tuntas dari cara nge-chat Nemo AI, scan struk belanjaan supermarket, kunci auto-lock ala M-Banking, sampai bikin tabungan impian terwujud. Gak pake istilah finansial yang bikin pusing kepala!
+        </p>
+
+        <!-- SEARCH BAR CEPAT -->
+        <div class="gb-search-wrap">
+          <div class="gb-search-box">
+            <span class="search-icon">🔍</span>
+            <input
+              type="text"
+              id="gb-search-input"
+              placeholder="Cari topik (contoh: struk, pin, tagihan rutin, gaji, impian, export)..."
+              autocomplete="off"
+            />
+            <button type="button" id="gb-clear-search" class="btn-clear" style="display: none;">✕</button>
+          </div>
+          <div class="gb-quick-tags">
+            <span class="quick-tag-label">Paling sering dicari:</span>
+            <button type="button" class="tag-pill" data-query="chat">💬 Catat via Chat</button>
+            <button type="button" class="tag-pill" data-query="struk">📸 Scan Struk</button>
+            <button type="button" class="tag-pill" data-query="pin">🔒 Auto-Lock PIN</button>
+            <button type="button" class="tag-pill" data-query="impian">⭐ Tabungan Impian</button>
+            <button type="button" class="tag-pill" data-query="budget">🎯 Budget Anti-Bocor</button>
+            <button type="button" class="tag-pill" data-query="export">📊 Ekspor CSV</button>
+          </div>
+        </div>
+
+        <!-- ACTION BUTTONS -->
+        <div class="gb-hero-cta">
+          <a href="https://app.aidah.web.id/open" class="btn-primary btn-lg" target="_blank" rel="noopener">
+            <span>🚀 Buka Aplikasi AIdah</span>
+          </a>
+          <a href="https://app.aidah.web.id/api/download-apk" class="btn-outline-hero" download="AIdah.apk">
+            <span>📱 Download APK Android (~24 MB)</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STICKY TOPIC NAVIGATOR (QUICK JUMP) -->
+    <nav class="gb-sticky-nav" id="gb-nav">
+      <div class="gb-container nav-scroll-container">
+        <a href="#modul-1" class="gb-nav-link active">1. Mulai & Akun</a>
+        <a href="#modul-2" class="gb-nav-link">2. Chat Nemo AI</a>
+        <a href="#modul-3" class="gb-nav-link">3. Scan Struk</a>
+        <a href="#modul-4" class="gb-nav-link">4. Saldo & Privasi</a>
+        <a href="#modul-5" class="gb-nav-link">5. Budget Anti-Bocor</a>
+        <a href="#modul-6" class="gb-nav-link">6. Tabungan Impian</a>
+        <a href="#modul-7" class="gb-nav-link">7. Laporan & Ekspor</a>
+        <a href="#modul-8" class="gb-nav-link">8. Keamanan & PIN</a>
+        <a href="#modul-9" class="gb-nav-link">9. Pasang di HP</a>
+        <a href="#modul-10" class="gb-nav-link">10. FAQ & Bantuan</a>
+      </div>
+    </nav>
+
+    <!-- INTERACTIVE SIMULATOR SECTION -->
+    <section class="gb-simulator-sec">
+      <div class="gb-container">
+        <div class="simulator-card">
+          <div class="sim-header">
+            <div class="sim-badge">🎮 Playground Interaktif</div>
+            <h2 class="sim-title">Coba Sendiri: Rasain Gimana Enaknya Catat Duit via Chat</h2>
+            <p class="sim-desc">Klik tombol contoh pesan di bawah buat liat gimana otaknya Nemo AI langsung mengolah catatan pengeluaran & pemasukan lo tanpa drama!</p>
+          </div>
+
+          <div class="sim-body">
+            <!-- Pilihan Prompt Cepat -->
+            <div class="sim-prompt-list">
+              <span class="prompt-title">Pilih contoh kalimat santai:</span>
+              <button type="button" class="sim-prompt-btn active" data-msg="makan siang geprek 25rb" data-type="expense" data-amt="Rp 25.000" data-cat="Makan & Minum" data-reply="Tercatat! Sisa budget makan bulan ini masih aman sentosa.">
+                🍗 "makan siang geprek 25rb"
+              </button>
+              <button type="button" class="sim-prompt-btn" data-msg="isi bensin beat 30k" data-type="expense" data-amt="Rp 30.000" data-cat="Transportasi" data-reply="Siap, bensin terdata! Hati-hati di jalan ya bray.">
+                🛵 "isi bensin beat 30k"
+              </button>
+              <button type="button" class="sim-prompt-btn" data-msg="gaji kantor masuk 8.5jt" data-type="income" data-amt="Rp 8.500.000" data-cat="Gaji" data-reply="Alhamdulillah! Pemasukan gaji mendarat, saldo bertambah!">
+                💰 "gaji kantor masuk 8.5jt"
+              </button>
+              <button type="button" class="sim-prompt-btn" data-msg="bayar wifi indihome 350rb rutin bulanan" data-type="recurring" data-amt="Rp 350.000" data-cat="Tagihan & Utilitas" data-reply="Otomatis dijadwalkan tiap bulan! Jatuh tempo berikutnya tercatat.">
+                🔄 "bayar wifi indihome 350rb rutin bulanan"
+              </button>
+              <button type="button" class="sim-prompt-btn" data-msg="sisihin 500rb buat tabungan laptop" data-type="goal" data-amt="Rp 500.000" data-cat="Tabungan Impian" data-reply="Mantap! Progres impian 'Upgrade Laptop' naik jadi 45%!">
+                ⭐ "sisihin 500rb buat tabungan laptop"
+              </button>
+            </div>
+
+            <!-- Preview Layar Chat -->
+            <div class="sim-chat-window">
+              <div class="chat-top-status">
+                <div class="sim-avatar">🐠</div>
+                <div>
+                  <div class="sim-name">Nemo AI</div>
+                  <div class="sim-online">online • asisten finansial lo</div>
+                </div>
+              </div>
+              <div class="sim-chat-msgs" id="sim-msgs">
+                <div class="sim-bubble sim-user-bubble" id="sim-user-text">makan siang geprek 25rb</div>
+                <div class="sim-bubble sim-ai-bubble" id="sim-ai-card">
+                  <div class="sim-card-tag" id="sim-tag">📋 Pengeluaran</div>
+                  <div class="sim-card-amount" id="sim-amt">-Rp 25.000</div>
+                  <div class="sim-card-cat" id="sim-cat">Pos: <strong>Makan & Minum</strong></div>
+                  <div class="sim-card-desc" id="sim-desc">Tercatat! Sisa budget makan bulan ini masih aman sentosa.</div>
+                  <div class="sim-card-status">✓ Tersimpan Otomatis</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTENT SECTIONS (MODUL 1 - 10) -->
+    <div class="gb-content-wrap">
+      <div class="gb-container">
+
+        <!-- MODUL 1 -->
+        <article class="gb-module-card" id="modul-1" data-keywords="daftar registrasi login akun password avatar emoji profil gaji bulanan trial 7 hari traktir kopi qris">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 01</span>
+            <h2 class="mod-title">Memulai & Setup Akun dalam 60 Detik</h2>
+            <p class="mod-lead">Daftar gampang, langsung dapet akses coba gratis 7 hari tanpa kartu kredit atau syarat ribet.</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">1. Registrasi Akun & Standar Keamanan Password</h3>
+              <p>Di AIdah, kita gak main-main soal keamanan data lo. Pas daftar, pastiin password lo memenuhi standar proteksi tingkat tinggi:</p>
+              <ul class="clean-list">
+                <li>✅ <strong>Minimal 8 Karakter:</strong> Jangan pake kombinasi pasaran kayak <code>12345678</code> ya bray!</li>
+                <li>✅ <strong>Wajib Huruf Besar & Kecil:</strong> Contoh: <code>AidahJuara</code>.</li>
+                <li>✅ <strong>Mengandung Angka & Simbol:</strong> Wajib selipkan angka dan simbol khusus (misal: <code>@</code>, <code>#</code>, <code>$</code>, <code>!</code>).</li>
+              </ul>
+              <div class="tip-card tip-blue">
+                <span class="tip-icon">💡</span>
+                <div><strong>Tips Santai:</strong> Bikin password yang gampang lo inget tapi mustahil ditebak orang lain, contohnya: <code>KopiEnak#2026!</code>.</div>
+              </div>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">2. Pilih Avatar Emoji & Masukkan Gaji Bulanan</h3>
+              <p>Begitu masuk halaman Pengaturan (Settings / Profil):</p>
+              <ul class="clean-list">
+                <li>🎨 <strong>Pilih Avatar:</strong> Lo bisa milih avatar emoji hewan kece (🐟 Nemo, 🦁 Singa, 🐱 Kucing, 🦊 Rubah, 🐼 Panda, dll) sesuai kepribadian lo.</li>
+                <li>💰 <strong>Atur Gaji Bulanan:</strong> Masukkan estimasi pendapatan bulananmu (misal: <code>8.000.000</code>). Fungsinya vital: biar AIdah bisa ngitungin otomatis alokasi persentase budget dan tabungan lo tiap awal bulan!</li>
+              </ul>
+              <div class="tip-card tip-green">
+                <span class="tip-icon">☕</span>
+                <div>
+                  <strong>Sistem Akses Bersahabat:</strong> Pengguna baru dapet <strong>7 Hari Uji Coba Gratis</strong>. Setelahnya, cukup traktir kopi developer via QRIS untuk perpanjang akses penuh 30 hari tanpa iklan dan tanpa ikatan langganan SaaS mahal!
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 2 -->
+        <article class="gb-module-card" id="modul-2" data-keywords="chat nemo ai ketik catat pesan percakapan pengeluaran pemasukan tagihan rutin recurring edit hapus batalkan">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 02</span>
+            <h2 class="mod-title">Nemo AI: Catat Transaksi Semudah Nge-Chat Temen</h2>
+            <p class="mod-lead">Lupakan form pengisian yang kaku dan bikin pusing di kasir. Buka chat, ketik apa adanya, beres!</p>
+          </div>
+
+          <div class="cheatsheet-box">
+            <h3 class="cs-title">📋 Cheatsheet Format Kalimat Nemo AI (Tinggal Tiru!)</h3>
+            <p class="cs-desc">Nemo AI udah dilatih buat paham bahasa pergaulan sehari-hari orang Indonesia. Nih contekan gayanya:</p>
+
+            <div class="table-responsive">
+              <table class="gb-table">
+                <thead>
+                  <tr>
+                    <th>Jenis Transaksi</th>
+                    <th>Contoh Kalimat yang Diketik</th>
+                    <th>Hasil Olahan Nemo AI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Makan & Jajan</strong></td>
+                    <td><code>makan sate ayam 25rb</code> atau <code>kopi susu gula aren 18k</code></td>
+                    <td>Pos: <span class="badge-cat">🍱 Makan & Minum</span> • Nominal: -Rp 25.000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bensin / Ongkir</strong></td>
+                    <td><code>bensin pertalite 35rb</code> atau <code>gojek ke kantor 14rb</code></td>
+                    <td>Pos: <span class="badge-cat">🛵 Transportasi</span> • Nominal: -Rp 35.000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Gaji Masuk</strong></td>
+                    <td><code>gaji bulanan masuk 8jt</code> atau <code>dapat thr 4.5jt</code></td>
+                    <td>Pos: <span class="badge-inc">💰 Pemasukan Gaji</span> • Nominal: +Rp 8.000.000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Freelance / Cuan Sampingan</strong></td>
+                    <td><code>cuan jualan kaos 450rb</code> atau <code>project web cair 2.5jt</code></td>
+                    <td>Pos: <span class="badge-inc">💵 Pemasukan Lainnya</span> • Nominal: +Rp 2.500.000</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tagihan Bulanan Rutin</strong></td>
+                    <td><code>bayar kosan 1.2jt rutin bulanan</code> atau <code>netflix 186rb tagihan rutin</code></td>
+                    <td>Pos: <span class="badge-cat">🏠 Tagihan Rutin</span> • Dijadwalkan otomatis bulan depan</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Belanja Bulanan</strong></td>
+                    <td><code>supermarket bulanan 650rb</code></td>
+                    <td>Pos: <span class="badge-cat">🛒 Belanja</span> • Nominal: -Rp 650.000</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="mod-grid" style="margin-top: 24px;">
+            <div class="info-block">
+              <h3 class="block-title">Koreksi Transaksi Langsung dari Chat</h3>
+              <p>Salah ketik angka atau pengen ganti kategori? Santai, gak perlu panik:</p>
+              <ul class="clean-list">
+                <li>✏️ <strong>Tombol Edit:</strong> Di bawah kartu transaksi Nemo, ketuk tombol <strong>Edit</strong> buat ganti nominal, nama toko, atau pos kategori.</li>
+                <li>❌ <strong>Tombol Batalkan / Hapus:</strong> Kalau lo berubah pikiran, ketuk tombol silang atau ketik <em>"batalin transaksi tadi"</em>. Datanya langsung dibatalkan detik itu juga.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">Fitur Tagihan Rutin (Auto-Recurring)</h3>
+              <p>Punya pengeluaran berkala kayak biaya internet, kos, langganan gym, atau listrik pascabayar?</p>
+              <ul class="clean-list">
+                <li>🔄 <strong>Sekali Catat, Ingat Seterusnya:</strong> Cukup tambahin kata <em>"rutin"</em> di pesanmu. Nemo bakal nampilin kartu tagihan berulang dan otomatis memunculkannya saat jatuh tempo tiba!</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 3 -->
+        <article class="gb-module-card" id="modul-3" data-keywords="struk belanja nota vision ai kamera foto kasir supermarket indomaret alfamart otomatis scan item">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 03</span>
+            <h2 class="mod-title">Pindai Struk Belanja Cerdas (Vision AI)</h2>
+            <p class="mod-lead">Habis belanja bulanan struknya panjang kayak kereta? Jangan diketik manual satu-satu, bray!</p>
+          </div>
+
+          <div class="steps-horizontal">
+            <div class="step-box">
+              <div class="step-num-badge">1</div>
+              <h4>Ketuk Ikon Kamera 📷</h4>
+              <p>Di pojok kiri bawah input bar chat Nemo, ketuk ikon kamera.</p>
+            </div>
+            <div class="step-arrow">➔</div>
+            <div class="step-box">
+              <div class="step-num-badge">2</div>
+              <h4>Foto / Upload Struk</h4>
+              <p>Arahkan kamera ke struk kasir atau pilih foto nota dari galeri HP lo.</p>
+            </div>
+            <div class="step-arrow">➔</div>
+            <div class="step-box">
+              <div class="step-num-badge">3</div>
+              <h4>AI Ekstraksi Otomatis</h4>
+              <p>Vision AI membaca merchant, rincian barang, diskon, pajak, dan total bayar.</p>
+            </div>
+            <div class="step-arrow">➔</div>
+            <div class="step-box">
+              <div class="step-num-badge">4</div>
+              <h4>Pilih Kategori & Simpan</h4>
+              <p>Pilih kategori belanja secara massal (bulk) atau per item, lalu klik Simpan!</p>
+            </div>
+          </div>
+
+          <div class="tip-card tip-yellow" style="margin-top: 20px;">
+            <span class="tip-icon">📸</span>
+            <div>
+              <strong>Trik Biar Scan Struk 100% Akurat:</strong>
+              Ratakan kertas struk di atas meja berlatar kontras (misal meja kayu gelap), pastiin pencahayaan ruangan terang dan tulisan kasir gak ngeblur atau terpotong bayangan HP lo!
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 4 -->
+        <article class="gb-module-card" id="modul-4" data-keywords="saldo total carry over sisa bulan lalu privasi intip mata budget alert sembunyikan nominal">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 04</span>
+            <h2 class="mod-title">Dashboard Saldo & Kontrol Privasi</h2>
+            <p class="mod-lead">Tahu persis berapa uang riil lo tanpa was-was diintip orang sebelah pas buka HP di kafe atau KRL.</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">Rumus Sakti Saldo Dinamis (Carry-Over)</h3>
+              <p>AIdah gak ngereset saldo lo jadi nol pas ganti tanggal 1. Sistem kita pake formula akuntansi riil:</p>
+              <div class="formula-box">
+                <code>Total Saldo = (Sisa Uang Bulan Lalu) + (Pemasukan Bulan Ini) - (Pengeluaran Bulan Ini)</code>
+              </div>
+              <p style="margin-top: 8px;">
+                Jadi kalau bulan lalu lo masih punya sisa Rp 1.500.000, uang itu otomatis terbawa sebagai modal operasional bulan berjalan. Lo gak bakal ngerasa uang lo hilang misterius!
+              </p>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">Fitur Anti-Kepo: Sembunyikan Saldo (👁️)</h3>
+              <p>Lagi duduk dempetan di KRL atau nongkrong rame-rame?</p>
+              <ul class="clean-list">
+                <li>🙈 <strong>Klik Ikon Mata di Kartu Saldo:</strong> Sekali klik, nominal saldo lo langsung disamarkan jadi <code>••••••••</code>.</li>
+                <li>🛡️ <strong>Privasi Tetap Terjaga:</strong> Lo tetap bisa mencatat pengeluaran tanpa takut orang di samping lo kepo liat berapa tabunganmu.</li>
+                <li>🚨 <strong>Budget Alerts:</strong> Di bawah kartu saldo, bakal muncul alarm kuning saat budget suatu pos tersisa sedikit (≥80%) dan alarm merah berkedip saat lo over-budget!</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 5 -->
+        <article class="gb-module-card" id="modul-5" data-keywords="budget anggaran anti bocor batas limit pengeluaran kategori kustom emoji baru deduplikasi">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 05</span>
+            <h2 class="mod-title">Batas Anggaran (Budget Anti-Bocor) & Kategori Kustom</h2>
+            <p class="mod-lead">Bebas boros di awal bulan tapi nangis makan mie instan di akhir bulan? Kuncinya ada di sini!</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">Cara Pasang Limit Anggaran</h3>
+              <p>Buka tab <strong>Budget</strong> di menu bawah:</p>
+              <ul class="clean-list">
+                <li>1️⃣ Pilih pos pengeluaran yang pengen lo rem (contoh: <em>Makan & Minum</em> atau <em>Nongkrong/Hiburan</em>).</li>
+                <li>2️⃣ Ketuk tombol <strong>Set Limit</strong>, masukkan nominal maksimal sebulan (misal: Rp 1.500.000).</li>
+                <li>3️⃣ Pantau progress bar-nya:
+                  <br />• 🟩 <strong>Hijau / Biru:</strong> Pemakaian di bawah 80% (Aman terkendali bray!).
+                  <br />• 🟨 <strong>Kuning:</strong> Pemakaian 80% - 99% (Hati-hati, rem belanjaan lo!).
+                  <br />• 🟥 <strong>Merah / Pink:</strong> Melewati 100% (Over budget!).
+                </li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">Bikin Pos Kategori Baru dengan Emoji</h3>
+              <p>Punya hobi khusus kayak rakit gundam, rawat kucing, atau jajan skincare?</p>
+              <ul class="clean-list">
+                <li>➕ <strong>Tambah Kategori Sendiri:</strong> Klik tombol tambah kategori, kasih nama posnya, dan pilih emoji favorit lo (🐱 Kucing, 🎮 Game, 👗 Fashion).</li>
+                <li>🧠 <strong>Smart Deduplikasi AI:</strong> Kalau lo bikin kategori mirip (misal: "makan siang" dan "makanan"), sistem AI AIdah otomatis menyelaraskannya ke pos yang tepat biar laporan keuangan lo gak berantakan!</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 6 -->
+        <article class="gb-module-card" id="modul-6" data-keywords="tabungan impian dreams goals target nabung laptop liburan dana darurat sumber dana">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 06</span>
+            <h2 class="mod-title">Tabungan Impian (Dreams Goal Tracker)</h2>
+            <p class="mod-lead">Mau beli gadget idaman, nonton konser, atau kumpulin dana darurat tanpa harus buka rekening bank baru?</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">1. Buat Kartu Impian Baru</h3>
+              <ul class="clean-list">
+                <li>🎯 Buka tab <strong>Budget & Impian</strong> ➔ Pilih sub-tab <strong>Impian (Goals)</strong>.</li>
+                <li>✨ Klik <strong>+ Buat Impian</strong>. Tentukan nama target (misal: <em>Liburan Jepang 🇯🇵</em>), target nominal (misal: Rp 15.000.000), dan tanggal target lo pengen berangkat.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">2. Cara Nyisihin Duit (Bebas Ribet!)</h3>
+              <p>Setiap ada rezeki atau gaji masuk, klik tombol <strong>+ Tabung</strong> di kartu impian lo:</p>
+              <ul class="clean-list">
+                <li>💵 <strong>Dari Saldo Bulan Ini:</strong> Dipotong langsung dari uang belanja bulan berjalan.</li>
+                <li>🏦 <strong>Dari Sisa Bulan Lalu:</strong> Diambil dari dana nganggur bulan-bulan kemarin yang belum kepakai.</li>
+                <li>🔒 <strong>Anti Saldo Ganda:</strong> Duit yang lo setor ke impian langsung 'dikunci' dari saldo belanja harian lo, jadi gak bakal kepake buat jajan gak sengaja!</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 7 -->
+        <article class="gb-module-card" id="modul-7" data-keywords="laporan analitik grafik tren mingguan cuan report w1 w2 w3 w4 filter hari ini 7 hari ekspor csv pdf excel">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 07</span>
+            <h2 class="mod-title">Laporan Keuangan (Cuan Report) & Ekspor Data</h2>
+            <p class="mod-lead">Intip pola pengeluaran lo: di minggu ke berapa lo paling boros, dan ke mana aja larinya duit lo.</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">Analitik Mingguan (W1 - W4) & Tren 6 Bulan</h3>
+              <p>Buka tab <strong>Laporan (Reports)</strong>:</p>
+              <ul class="clean-list">
+                <li>📊 <strong>Grafik Mingguan:</strong> Duit lo dipecah per minggu (Minggu 1, Minggu 2, Minggu 3, Minggu 4). Lo bisa langsung sadar: <em>"Wah, minggu kedua gajian kemarin boros banget nih!"</em>.</li>
+                <li>📈 <strong>Grafik 6 Bulan:</strong> Pantau apakah pengeluaran lo makin hemat atau makin membengkak dari bulan ke bulan.</li>
+                <li>🔍 <strong>Filter Cepat:</strong> Di layar transaksi, klik pil filter cepat <strong>Hari Ini</strong>, <strong>7 Hari Terakhir</strong>, atau <strong>Bulan Ini</strong> untuk lihat total perputaran kas seketika.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">Ekspor ke Excel (CSV) & Cetak PDF</h3>
+              <p>Butuh data buat evaluasi bareng pasangan atau arsip pribadi?</p>
+              <ul class="clean-list">
+                <li>📑 <strong>Ekspor CSV:</strong> Sekali klik di menu profil/laporan, seluruh riwayat transaksi terunduh rapi dalam format spreadsheet Excel/Google Sheets.</li>
+                <li>🖨️ <strong>Ekspor PDF / HTML (Web):</strong> Versi web menyediakan tampilan cetak laporan PDF profesional yang siap print!</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 8 -->
+        <article class="gb-module-card" id="modul-8" data-keywords="keamanan pin kunci auto lock minimize background bank m-banking sidik jari fingerprint face id rls database">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 08</span>
+            <h2 class="mod-title">Keamanan Setara M-Banking: Kunci Auto-Lock</h2>
+            <p class="mod-lead">Privasi mutlak. Sekali aplikasi lo tutup atau minimize, langsung otomatis terkunci seketika!</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">Cara Kerja Auto-Lock PIN (Seperti Aplikasi Bank)</h3>
+              <p>Begitu lo mengaktifkan <strong>Kunci PIN</strong> di menu profil:</p>
+              <ul class="clean-list">
+                <li>🔒 <strong>Deteksi Otomatis Saat Keluar:</strong> Setiap kali lo tekan tombol Home, beralih ke aplikasi lain (WhatsApp/Instagram), atau mengunci layar HP, AIdah otomatis memasang gembok pengaman.</li>
+                <li>🛡️ <strong>Aman dari Teman Iseng:</strong> Saat aplikasi dibuka lagi, layar langsung meminta 4-digit PIN atau sensor sidik jari lo. Temen tongkrongan yang lagi pinjam HP gak bakal bisa kepo mutasi rekening lo!</li>
+                <li>⚡ <strong>Sensor Biometrik:</strong> Mendukung Fingerprint & Face ID lokal buat buka kunci cepat tanpa ngetik PIN berulang-ulang.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">Isolasi Data Database (Row Level Security)</h3>
+              <p>AIdah dibangun dengan arsitektur privasi zero-knowledge:</p>
+              <ul class="clean-list">
+                <li>🔐 <strong>Terkunci per User ID:</strong> Database PostgreSQL Supabase diamankan dengan enkripsi Row Level Security (RLS). Tidak ada user lain yang bisa membaca catatan keuangan lo.</li>
+                <li>🚫 <strong>Bebas Iklan & Pelacak Pihak Ketiga:</strong> Data finansial lo adalah rahasia pribadi lo seumur hidup.</li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 9 -->
+        <article class="gb-module-card" id="modul-9" data-keywords="pasang aplikasi android apk iphone ios safari pwa nemo bubble chime notifikasi pengingat harian">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 09</span>
+            <h2 class="mod-title">Panduan Pasang di HP (Android & iOS)</h2>
+            <p class="mod-lead">Pake AIdah di mana aja, bisa lewat aplikasi mandiri Android maupun Shortcut di iPhone.</p>
+          </div>
+
+          <div class="mod-grid">
+            <div class="info-block">
+              <h3 class="block-title">🤖 Pasang di Android (File APK Mandiri)</h3>
+              <ul class="clean-list">
+                <li>1️⃣ Klik link unduh: <a href="https://app.aidah.web.id/api/download-apk" class="text-link" download="AIdah.apk"><strong>Download APK Resmi (~24 MB)</strong></a>.</li>
+                <li>2️⃣ Saat muncul notifikasi <em>"File might be harmful"</em> di Chrome, klik <strong>"Download anyway"</strong> (tenang bray, APK AIdah 100% bebas virus dan aman).</li>
+                <li>3️⃣ Buka file installer dan pilih <strong>Install</strong>. Selesai! AIdah siap nangkring di home screen HP lo.</li>
+              </ul>
+            </div>
+
+            <div class="info-block">
+              <h3 class="block-title">🍎 Pasang di iPhone / iPad (Safari PWA)</h3>
+              <ul class="clean-list">
+                <li>1️⃣ Buka browser <strong>Safari</strong> di iPhone lo, masuk ke <code>https://app.aidah.web.id</code>.</li>
+                <li>2️⃣ Ketuk tombol <strong>Share</strong> (ikon kotak dengan panah ke atas di bilah bawah Safari).</li>
+                <li>3️⃣ Geser ke bawah, pilih <strong>"Add to Home Screen" (Tambah ke Layar Utama)</strong>.</li>
+                <li>4️⃣ Klik <strong>Add</strong>. Ikon AIdah langsung muncul dan bisa dibuka full-screen tanpa address bar browser!</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tip-card tip-blue" style="margin-top: 16px;">
+            <span class="tip-icon">🔔</span>
+            <div>
+              <strong>Nemo Bubble Chime (Pengingat Harian 3x Sehari):</strong>
+              Di aplikasi mobile, Nemo bakal nyapa kamu dengan nada khas gelembung air: jam <strong>08:00 WIB</strong> (semangat pagi), <strong>12:00 WIB</strong> (ingat catat makan siang), dan <strong>20:00 WIB</strong> (rekap pengeluaran sebelum tidur).
+            </div>
+          </div>
+        </article>
+
+        <!-- MODUL 10 -->
+        <article class="gb-module-card" id="modul-10" data-keywords="faq tanya jawab lupa pin bantuan whatsapp kendala transfer reset data">
+          <div class="mod-header">
+            <span class="mod-num">MODUL 10</span>
+            <h2 class="mod-title">FAQ & Pusat Bantuan Langsung</h2>
+            <p class="mod-lead">Punya pertanyaan atau ngalamin kendala teknis? Nih jawaban tercepatnya!</p>
+          </div>
+
+          <div class="faq-accordion">
+            <details class="faq-item" open>
+              <summary class="faq-question">Gimana kalau gue lupa PIN kunci aplikasi?</summary>
+              <div class="faq-answer">
+                Santai bray! Di layar kunci PIN, lo cukup ketuk tombol <strong>"Lupa PIN / Keluar Akun"</strong> di bawah keypad. Sistem bakal mereset kunci PIN lokal dan mengarahkan lo login ulang pake email serta password akun lo. Begitu login sukses, lo bisa bikin PIN 4-digit baru di menu profil.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">Apakah data transaksi gue aman dan sinkron antara Web dan Android?</summary>
+              <div class="faq-answer">
+                100% sinkron secara real-time! Apapun yang lo catat lewat web browser di laptop bakal otomatis muncul di aplikasi Android lo detik itu juga, karena kedua versi terhubung langsung ke database cloud aman AIdah.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">Gimana cara reset data kalau gue pengen mulai pembukuan dari nol?</summary>
+              <div class="faq-answer">
+                Buka menu <strong>Pengaturan (Settings)</strong> ➔ scroll ke bawah dan pilih <strong>"🔥 Reset Data Transaksi"</strong>. Lo bisa milih hapus transaksi 1 bulan terakhir, 3 bulan terakhir, atau reset total dari awal.
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">Gimana cara konfirmasi kalau udah traktir kopi QRIS?</summary>
+              <div class="faq-answer">
+                Setelah scan QRIS, simpan bukti transfer / struk pembayaranmu. Di aplikasi atau landing page, klik tombol <strong>"Kirim Bukti ke WhatsApp Admin"</strong>. Admin AIdah bakal langsung memverifikasi dan mengaktifkan akunmu dalam hitungan menit!
+              </div>
+            </details>
+          </div>
+
+          <!-- BANTUAN WA ADMIN -->
+          <div class="support-banner">
+            <div class="support-avatar">💬</div>
+            <div class="support-info">
+              <h3>Masih Butuh Bantuan atau Pengen Ngobrol Bareng Admin?</h3>
+              <p>Admin AIdah ramah dan siap bantu lo kapan aja via chat WhatsApp resmi.</p>
+            </div>
+            <a
+              href="https://wa.me/6289661209500?text=Halo%20Admin%20AIdah,%20saya%20sudah%20baca%20Guidebook%20dan%20ingin%20bertanya%20seputar%20aplikasi%20AIdah"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-wa"
+            >
+              <span>Chat WhatsApp Admin ➔</span>
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- STICKY BOTTOM BAR -->
+    <aside class="gb-bottom-bar">
+      <div class="gb-container bottom-bar-inner">
+        <div class="bottom-bar-text">
+          <strong>Udah paham semua jurus AIdah?</strong>
+          <span>Mulai beresin catatan finansial lo sekarang juga bray!</span>
+        </div>
+        <div class="bottom-bar-btns">
+          <a href="https://app.aidah.web.id/open" class="btn-primary" target="_blank" rel="noopener">
+            <span>🚀 Buka Web App</span>
+          </a>
+          <a href="https://app.aidah.web.id/api/download-apk" class="btn-secondary-white" download="AIdah.apk">
+            <span>📱 Download APK</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+  </main>
+</Layout>
+
+<script>
+  // ================= 1. INTERACTIVE CHAT SIMULATOR =================
+  const promptButtons = document.querySelectorAll('.sim-prompt-btn');
+  const userTextEl = document.getElementById('sim-user-text');
+  const tagEl = document.getElementById('sim-tag');
+  const amtEl = document.getElementById('sim-amt');
+  const catEl = document.getElementById('sim-cat');
+  const descEl = document.getElementById('sim-desc');
+  const aiCardEl = document.getElementById('sim-ai-card');
+
+  promptButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      promptButtons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const msg = btn.getAttribute('data-msg') || '';
+      const type = btn.getAttribute('data-type') || 'expense';
+      const amt = btn.getAttribute('data-amt') || '';
+      const cat = btn.getAttribute('data-cat') || '';
+      const reply = btn.getAttribute('data-reply') || '';
+
+      if (userTextEl) userTextEl.textContent = msg;
+      if (amtEl) amtEl.textContent = (type === 'income' ? '+' : '-') + amt.replace('-', '');
+      if (catEl) catEl.innerHTML = `Pos: <strong>${cat}</strong>`;
+      if (descEl) descEl.textContent = reply;
+
+      if (tagEl) {
+        if (type === 'income') {
+          tagEl.textContent = '💰 Pemasukan';
+          tagEl.className = 'sim-card-tag tag-inc';
+        } else if (type === 'recurring') {
+          tagEl.textContent = '🔄 Tagihan Rutin Bulanan';
+          tagEl.className = 'sim-card-tag tag-rec';
+        } else if (type === 'goal') {
+          tagEl.textContent = '⭐ Alokasi Tabungan Impian';
+          tagEl.className = 'sim-card-tag tag-goal';
+        } else {
+          tagEl.textContent = '📋 Pengeluaran';
+          tagEl.className = 'sim-card-tag';
+        }
+      }
+
+      // Micro animation
+      if (aiCardEl) {
+        aiCardEl.style.transform = 'scale(0.97)';
+        setTimeout(() => {
+          aiCardEl.style.transform = 'scale(1)';
+        }, 120);
+      }
+    });
+  });
+
+  // ================= 2. LIVE SEARCH & FILTER =================
+  const searchInput = document.getElementById('gb-search-input') as HTMLInputElement | null;
+  const clearBtn = document.getElementById('gb-clear-search');
+  const moduleCards = document.querySelectorAll('.gb-module-card');
+  const tagPills = document.querySelectorAll('.tag-pill');
+
+  function performSearch(query: string) {
+    const q = query.toLowerCase().trim();
+    if (clearBtn) clearBtn.style.display = q ? 'block' : 'none';
+
+    moduleCards.forEach((card) => {
+      const el = card as HTMLElement;
+      const keywords = (el.getAttribute('data-keywords') || '') + ' ' + el.innerText.toLowerCase();
+      if (!q || keywords.includes(q)) {
+        el.style.display = 'block';
+      } else {
+        el.style.display = 'none';
+      }
+    });
+  }
+
+  searchInput?.addEventListener('input', (e) => {
+    performSearch((e.target as HTMLInputElement).value);
+  });
+
+  clearBtn?.addEventListener('click', () => {
+    if (searchInput) {
+      searchInput.value = '';
+      performSearch('');
+      searchInput.focus();
+    }
+  });
+
+  tagPills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      const q = pill.getAttribute('data-query') || '';
+      if (searchInput) {
+        searchInput.value = q;
+        performSearch(q);
+        const firstMatch = document.querySelector('.gb-module-card[style*="block"]') || document.querySelector('.gb-module-card:not([style*="none"])');
+        if (firstMatch) {
+          firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+
+  // ================= 3. ACTIVE STICKY NAV HIGHLIGHT =================
+  const navLinks = document.querySelectorAll('.gb-nav-link');
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          navLinks.forEach((link) => {
+            if (link.getAttribute('href') === `#${id}`) {
+              link.classList.add('active');
+            } else {
+              link.classList.remove('active');
+            }
+          });
+        }
+      });
+    },
+    { threshold: 0.25, rootMargin: '-80px 0px -40% 0px' }
+  );
+
+  moduleCards.forEach((card) => observer.observe(card));
+</script>
+
+<style>
+  /* ================= GUIDEBOOK STYLES ================= */
+  .gb-page {
+    padding-top: 80px;
+    padding-bottom: 90px;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  .gb-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* HERO */
+  .gb-hero {
+    padding: 50px 0 36px;
+    text-align: center;
+    background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.12), transparent 70%);
+  }
+
+  .gb-badge-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    padding: 6px 16px;
+    border-radius: 99px;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--blue-700);
+    margin-bottom: 18px;
+  }
+
+  .badge-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #10b981;
+    display: inline-block;
+  }
+
+  .gb-title {
+    font-size: 42px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .highlight-yellow {
+    background: #fef08a;
+    padding: 0 8px;
+    border-radius: 8px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    display: inline-block;
+    color: var(--ink);
+  }
+
+  .gb-subtitle {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--text);
+    max-width: 780px;
+    margin: 0 auto 28px;
+    font-weight: 600;
+  }
+
+  /* SEARCH BAR */
+  .gb-search-wrap {
+    max-width: 720px;
+    margin: 0 auto 30px;
+  }
+
+  .gb-search-box {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 2.5px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 18px;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .search-icon {
+    font-size: 20px;
+  }
+
+  .gb-search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    background: transparent;
+    font-family: inherit;
+  }
+
+  .btn-clear {
+    background: #fee2e2;
+    border: 1.5px solid var(--ink);
+    color: #dc2626;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: 800;
+    font-size: 13px;
+  }
+
+  .gb-quick-tags {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+  }
+
+  .quick-tag-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--muted);
+  }
+
+  .tag-pill {
+    background: #ffffff;
+    border: 1.5px solid var(--ink);
+    box-shadow: 1.5px 1.5px 0 var(--ink);
+    border-radius: 99px;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+    transition: transform 0.1s;
+  }
+
+  .tag-pill:hover {
+    transform: translate(-1px, -1px);
+    background: #dbeafe;
+  }
+
+  .gb-hero-cta {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+
+  .btn-outline-hero {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #ffffff;
+    color: var(--ink);
+    font-weight: 800;
+    border: 2px solid var(--ink);
+    border-radius: 14px;
+    padding: 12px 20px;
+    cursor: pointer;
+    box-shadow: 4px 4px 0 var(--ink);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .btn-outline-hero:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  /* STICKY NAV */
+  .gb-sticky-nav {
+    position: sticky;
+    top: 60px;
+    z-index: 900;
+    background: rgba(239, 246, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-top: 2px solid var(--ink);
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 0;
+  }
+
+  .nav-scroll-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    scrollbar-width: none;
+  }
+
+  .nav-scroll-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gb-nav-link {
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 2px 2px 0 var(--ink);
+    padding: 6px 14px;
+    border-radius: 99px;
+    font-size: 12.5px;
+    font-weight: 800;
+    color: var(--ink);
+    text-decoration: none;
+    transition: all 0.15s ease;
+  }
+
+  .gb-nav-link:hover,
+  .gb-nav-link.active {
+    background: var(--blue-500);
+    color: #ffffff;
+    border-color: var(--ink);
+    transform: translateY(-1px);
+  }
+
+  /* SIMULATOR */
+  .gb-simulator-sec {
+    padding: 40px 0;
+  }
+
+  .simulator-card {
+    background: #ffffff;
+    border: 2.5px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    border-radius: 24px;
+    padding: 32px;
+  }
+
+  .sim-header {
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .sim-badge {
+    display: inline-block;
+    background: #fce7f3;
+    border: 1.5px solid var(--ink);
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #9d174d;
+    margin-bottom: 8px;
+  }
+
+  .sim-title {
+    font-size: 24px;
+    font-weight: 900;
+    color: var(--ink);
+  }
+
+  .sim-desc {
+    font-size: 14.5px;
+    color: var(--text);
+    font-weight: 600;
+    margin-top: 6px;
+  }
+
+  .sim-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .sim-prompt-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .prompt-title {
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--muted);
+    margin-bottom: 4px;
+  }
+
+  .sim-prompt-btn {
+    text-align: left;
+    background: var(--blue-50);
+    border: 2px solid var(--border);
+    border-radius: 12px;
+    padding: 10px 14px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-family: inherit;
+  }
+
+  .sim-prompt-btn:hover {
+    border-color: var(--ink);
+    background: #dbeafe;
+  }
+
+  .sim-prompt-btn.active {
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    color: var(--blue-700);
+  }
+
+  .sim-chat-window {
+    background: #f8fafc;
+    border: 2px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .chat-top-status {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ffffff;
+    border-bottom: 2px solid var(--ink);
+    padding: 10px 16px;
+  }
+
+  .sim-avatar {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #eff6ff;
+    border: 1.5px solid var(--ink);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+  }
+
+  .sim-name {
+    font-size: 13.5px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .sim-online {
+    font-size: 11px;
+    color: #16a34a;
+    font-weight: 700;
+  }
+
+  .sim-chat-msgs {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-height: 220px;
+    justify-content: center;
+  }
+
+  .sim-user-bubble {
+    align-self: flex-end;
+    background: var(--blue-500);
+    color: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    padding: 9px 15px;
+    border-radius: 16px 16px 4px 16px;
+    font-weight: 700;
+    font-size: 13.5px;
+  }
+
+  .sim-ai-bubble {
+    align-self: flex-start;
+    background: #ffffff;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 12px 14px;
+    border-radius: 16px 16px 16px 4px;
+    width: 90%;
+    transition: transform 0.15s ease;
+  }
+
+  .sim-card-tag {
+    font-size: 11px;
+    font-weight: 800;
+    color: #9d174d;
+    background: #fce7f3;
+    padding: 2px 8px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+
+  .sim-card-tag.tag-inc {
+    background: #dcfce7;
+    color: #166534;
+  }
+
+  .sim-card-tag.tag-rec {
+    background: #fef3c7;
+    color: #92400E;
+  }
+
+  .sim-card-tag.tag-goal {
+    background: #ede9fe;
+    color: #5b21b6;
+  }
+
+  .sim-card-amount {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--ink);
+  }
+
+  .sim-card-cat {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  .sim-card-desc {
+    font-size: 12.5px;
+    color: var(--text);
+    margin-top: 6px;
+    font-weight: 600;
+  }
+
+  .sim-card-status {
+    font-size: 10.5px;
+    font-weight: 800;
+    color: #16a34a;
+    margin-top: 6px;
+  }
+
+  /* MODULE ARTICLES */
+  .gb-content-wrap {
+    padding: 20px 0 60px;
+  }
+
+  .gb-module-card {
+    background: #ffffff;
+    border: 2.5px solid var(--ink);
+    box-shadow: 6px 6px 0 var(--ink);
+    border-radius: 24px;
+    padding: 36px;
+    margin-bottom: 40px;
+    scroll-margin-top: 130px;
+  }
+
+  .mod-header {
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 18px;
+  }
+
+  .mod-num {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--blue-600);
+    background: var(--blue-100);
+    padding: 3px 10px;
+    border-radius: 99px;
+    border: 1.5px solid var(--ink);
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+
+  .mod-title {
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+
+  .mod-lead {
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .mod-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .info-block {
+    background: var(--blue-50);
+    border: 2px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .block-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+
+  .clean-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13.5px;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .formula-box {
+    background: #ffffff;
+    border: 1.5px solid var(--ink);
+    padding: 8px 12px;
+    border-radius: 10px;
+    margin: 8px 0;
+  }
+
+  .formula-box code {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--blue-700);
+  }
+
+  .tip-card {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 1.5px solid var(--ink);
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-top: 14px;
+  }
+
+  .tip-icon {
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .tip-blue {
+    background: #eff6ff;
+    border-color: #3b82f6;
+  }
+
+  .tip-green {
+    background: #f0fdf4;
+    border-color: #16a34a;
+  }
+
+  .tip-yellow {
+    background: #fefce8;
+    border-color: #ca8a04;
+  }
+
+  /* CHEATSHEET & TABLES */
+  .cheatsheet-box {
+    background: #f8fafc;
+    border: 2px solid var(--ink);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .cs-title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .cs-desc {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: 2px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .gb-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    text-align: left;
+  }
+
+  .gb-table th,
+  .gb-table td {
+    padding: 10px 12px;
+    border-bottom: 1.5px solid #e2e8f0;
+  }
+
+  .gb-table th {
+    background: #e2e8f0;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .gb-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .gb-table code {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-weight: 700;
+    color: var(--blue-700);
+  }
+
+  .badge-cat {
+    background: #dbeafe;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #1e40af;
+  }
+
+  .badge-inc {
+    background: #dcfce7;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 700;
+    color: #166534;
+  }
+
+  /* HORIZONTAL STEPS */
+  .steps-horizontal {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .step-box {
+    flex: 1;
+    background: var(--blue-50);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    border-radius: 16px;
+    padding: 16px;
+  }
+
+  .step-num-badge {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--blue-500);
+    color: #ffffff;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    margin-bottom: 10px;
+    border: 1.5px solid var(--ink);
+  }
+
+  .step-box h4 {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .step-box p {
+    font-size: 12px;
+    color: var(--text);
+    font-weight: 600;
+    line-height: 1.4;
+  }
+
+  .step-arrow {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--muted);
+  }
+
+  /* FAQ ACCORDION */
+  .faq-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .faq-item {
+    background: var(--blue-50);
+    border: 2px solid var(--border);
+    border-radius: 14px;
+    padding: 14px 16px;
+  }
+
+  .faq-item[open] {
+    border-color: var(--ink);
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    background: #ffffff;
+  }
+
+  .faq-question {
+    font-size: 14.5px;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--blue-600);
+  }
+
+  .faq-item[open] .faq-question::after {
+    content: '−';
+  }
+
+  .faq-answer {
+    margin-top: 10px;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    font-weight: 600;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 10px;
+  }
+
+  /* SUPPORT BANNER */
+  .support-banner {
+    background: #dcfce7;
+    border: 2.5px solid var(--ink);
+    box-shadow: 4px 4px 0 var(--ink);
+    border-radius: 18px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .support-avatar {
+    font-size: 32px;
+    flex-shrink: 0;
+  }
+
+  .support-info {
+    flex: 1;
+  }
+
+  .support-info h3 {
+    font-size: 16px;
+    font-weight: 900;
+    color: #14532d;
+  }
+
+  .support-info p {
+    font-size: 13px;
+    color: #166534;
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .btn-wa {
+    background: #16a34a;
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 13.5px;
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 10px 18px;
+    border-radius: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: transform 0.1s;
+  }
+
+  .btn-wa:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--ink);
+  }
+
+  .text-link {
+    color: var(--blue-700);
+    text-decoration: underline;
+  }
+
+  /* BOTTOM STICKY BAR */
+  .gb-bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: #ffffff;
+    border-top: 2.5px solid var(--ink);
+    padding: 12px 0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+  }
+
+  .bottom-bar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .bottom-bar-text strong {
+    font-size: 14px;
+    color: var(--ink);
+    display: block;
+  }
+
+  .bottom-bar-text span {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .bottom-bar-btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  .btn-secondary-white {
+    background: #ffffff;
+    color: var(--ink);
+    border: 2px solid var(--ink);
+    box-shadow: 3px 3px 0 var(--ink);
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    font-weight: 800;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: transform 0.1s;
+  }
+
+  .btn-secondary-white:hover {
+    transform: translate(-1px, -1px);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 860px) {
+    .gb-title {
+      font-size: 30px;
+    }
+
+    .sim-body {
+      grid-template-columns: 1fr;
+    }
+
+    .mod-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .steps-horizontal {
+      flex-direction: column;
+    }
+
+    .step-arrow {
+      transform: rotate(90deg);
+      margin: 4px 0;
+    }
+
+    .support-banner {
+      flex-direction: column;
+      text-align: center;
+      gap: 14px;
+    }
+
+    .bottom-bar-inner {
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    .bottom-bar-btns {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
