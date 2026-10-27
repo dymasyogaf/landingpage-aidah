@@ -12,14 +12,14 @@ import Layout from '../layouts/Layout.astro';
       <div class="gb-container">
         <div class="gb-badge-top">
           <span class="badge-dot"></span>
-          <span>Buku Panduan Lengkap • AIdah Guidebook v1.0</span>
+          <span>Buku Panduan Lengkap AIdah</span>
         </div>
         <h1 class="gb-title">
           Kuasai Semua Fitur AIdah,<br />
-          <span class="highlight-yellow">Biar Duit Gak Ghaib Lagi! 💸</span>
+          <span class="highlight-yellow">Biar Duit Gak Ghaib! 💸</span>
         </h1>
         <p class="gb-subtitle">
-          Selamat datang di markas panduan AIdah, bray! Di sini kita bedah tuntas dari cara nge-chat Nemo AI, scan struk belanjaan supermarket, kunci auto-lock ala M-Banking, sampai bikin tabungan impian terwujud. Gak pake istilah finansial yang bikin pusing kepala!
+          Selamat datang di markas panduan AIdah, bray! Di sini kita bedah tuntas cara nge-chat Nemo AI, scan nota kasir supermarket, kunci auto-lock ala M-Banking, sampai bikin tabungan impian terwujud. Gak pake istilah finansial yang bikin pusing kepala!
         </p>
 
         <!-- SEARCH BAR CEPAT -->
@@ -29,7 +29,7 @@ import Layout from '../layouts/Layout.astro';
             <input
               type="text"
               id="gb-search-input"
-              placeholder="Cari topik (contoh: struk, pin, tagihan rutin, gaji, impian, export)..."
+              placeholder="Cari panduan (misal: struk, pin, budget, impian, export)..."
               autocomplete="off"
             />
             <button type="button" id="gb-clear-search" class="btn-clear" style="display: none;">✕</button>
@@ -545,11 +545,14 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </div>
 
-    <!-- STICKY BOTTOM BAR -->
-    <aside class="gb-bottom-bar">
-      <div class="gb-container bottom-bar-inner">
+    <!-- BOTTOM SLIDE-UP POPUP (Hanya muncul saat scroll sampai bawah) -->
+    <aside class="gb-bottom-bar" id="gb-bottom-bar" aria-hidden="true">
+      <div class="bottom-bar-inner">
         <div class="bottom-bar-text">
-          <strong>Udah paham semua jurus AIdah?</strong>
+          <div class="bottom-bar-title-row">
+            <strong>Udah paham semua jurus AIdah? 🚀</strong>
+            <button type="button" id="btn-close-bottom-bar" class="btn-close-toast" aria-label="Tutup popup">✕</button>
+          </div>
           <span>Mulai beresin catatan finansial lo sekarang juga bray!</span>
         </div>
         <div class="bottom-bar-btns">
@@ -685,12 +688,46 @@ import Layout from '../layouts/Layout.astro';
   );
 
   moduleCards.forEach((card) => observer.observe(card));
+
+  // ================= 4. POPUP BOTTOM BAR SCROLL TRIGGER =================
+  const bottomBar = document.getElementById('gb-bottom-bar');
+  const closeBottomBarBtn = document.getElementById('btn-close-bottom-bar');
+  let isBottomBarDismissed = false;
+
+  closeBottomBarBtn?.addEventListener('click', () => {
+    isBottomBarDismissed = true;
+    bottomBar?.classList.remove('is-visible');
+    bottomBar?.setAttribute('aria-hidden', 'true');
+  });
+
+  const checkScrollBottom = () => {
+    if (isBottomBarDismissed || !bottomBar) return;
+
+    const scrollY = window.scrollY || window.pageYOffset;
+    const windowHeight = window.innerHeight;
+    const docHeight = document.documentElement.scrollHeight;
+
+    // Muncul saat user sudah scroll melewati 70% halaman atau sisa jarak ke bawah < 850px
+    const scrollPercent = (scrollY + windowHeight) / docHeight;
+    const isNearBottom = scrollPercent > 0.70 || (docHeight - (scrollY + windowHeight)) < 850;
+
+    if (isNearBottom) {
+      bottomBar.classList.add('is-visible');
+      bottomBar.setAttribute('aria-hidden', 'false');
+    } else {
+      bottomBar.classList.remove('is-visible');
+      bottomBar.setAttribute('aria-hidden', 'true');
+    }
+  };
+
+  window.addEventListener('scroll', checkScrollBottom, { passive: true });
+  checkScrollBottom();
 </script>
 
 <style>
   /* ================= GUIDEBOOK STYLES ================= */
   .gb-page {
-    padding-top: 80px;
+    padding-top: 72px;
     padding-bottom: 90px;
     background: var(--bg);
     color: var(--text);
@@ -705,7 +742,7 @@ import Layout from '../layouts/Layout.astro';
 
   /* HERO */
   .gb-hero {
-    padding: 50px 0 36px;
+    padding: 36px 0 24px;
     text-align: center;
     background: radial-gradient(circle at 50% 20%, rgba(59, 130, 246, 0.12), transparent 70%);
   }
@@ -716,13 +753,15 @@ import Layout from '../layouts/Layout.astro';
     gap: 8px;
     background: #ffffff;
     border: 2px solid var(--ink);
-    box-shadow: 2.5px 2.5px 0 var(--ink);
-    padding: 6px 16px;
+    box-shadow: 2px 2px 0 var(--ink);
+    padding: 6px 14px;
     border-radius: 99px;
     font-size: 13px;
     font-weight: 800;
     color: var(--blue-700);
-    margin-bottom: 18px;
+    margin-bottom: 16px;
+    white-space: nowrap;
+    max-width: 90vw;
   }
 
   .badge-dot {
@@ -731,39 +770,43 @@ import Layout from '../layouts/Layout.astro';
     border-radius: 50%;
     background: #10b981;
     display: inline-block;
+    flex-shrink: 0;
   }
 
   .gb-title {
-    font-size: 42px;
+    font-size: clamp(26px, 5.5vw, 42px);
     font-weight: 900;
-    line-height: 1.2;
+    line-height: 1.25;
     color: var(--ink);
-    margin-bottom: 16px;
+    margin-bottom: 14px;
+    text-wrap: balance;
   }
 
   .highlight-yellow {
     background: #fef08a;
-    padding: 0 8px;
-    border-radius: 8px;
+    padding: 2px 10px;
+    border-radius: 10px;
     border: 2px solid var(--ink);
     box-shadow: 3px 3px 0 var(--ink);
     display: inline-block;
     color: var(--ink);
+    margin-top: 4px;
   }
 
   .gb-subtitle {
-    font-size: 17px;
+    font-size: 15px;
     line-height: 1.6;
-    color: var(--text);
-    max-width: 780px;
-    margin: 0 auto 28px;
+    color: #334155;
+    max-width: 680px;
+    margin: 0 auto 24px;
     font-weight: 600;
+    text-wrap: pretty;
   }
 
   /* SEARCH BAR */
   .gb-search-wrap {
-    max-width: 720px;
-    margin: 0 auto 30px;
+    max-width: 680px;
+    margin: 0 auto 24px;
   }
 
   .gb-search-box {
@@ -771,25 +814,27 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     background: #ffffff;
     border: 2.5px solid var(--ink);
-    box-shadow: 4px 4px 0 var(--ink);
-    border-radius: 18px;
-    padding: 10px 16px;
+    box-shadow: 3.5px 3.5px 0 var(--ink);
+    border-radius: 16px;
+    padding: 8px 14px;
     gap: 10px;
   }
 
   .search-icon {
-    font-size: 20px;
+    font-size: 18px;
+    flex-shrink: 0;
   }
 
   .gb-search-box input {
     flex: 1;
     border: none;
     outline: none;
-    font-size: 15px;
+    font-size: 14.5px;
     font-weight: 700;
     color: var(--ink);
     background: transparent;
     font-family: inherit;
+    min-width: 0;
   }
 
   .btn-clear {
@@ -1490,17 +1535,30 @@ import Layout from '../layouts/Layout.astro';
     text-decoration: underline;
   }
 
-  /* BOTTOM STICKY BAR */
+  /* BOTTOM SLIDE-UP POPUP (Hanya muncul saat scroll sampai bawah) */
   .gb-bottom-bar {
     position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    bottom: 24px;
+    left: 20px;
+    right: 20px;
+    max-width: 680px;
+    margin: 0 auto;
     z-index: 1000;
     background: #ffffff;
-    border-top: 2.5px solid var(--ink);
-    padding: 12px 0;
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.06);
+    border: 2.5px solid var(--ink);
+    border-radius: 20px;
+    padding: 16px 20px;
+    box-shadow: 6px 6px 0 var(--ink);
+    transform: translateY(180%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  }
+
+  .gb-bottom-bar.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .bottom-bar-inner {
@@ -1510,29 +1568,66 @@ import Layout from '../layouts/Layout.astro';
     gap: 16px;
   }
 
+  .bottom-bar-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .btn-close-toast {
+    background: #f1f5f9;
+    border: 1.5px solid var(--ink);
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+    flex-shrink: 0;
+  }
+
+  .btn-close-toast:hover {
+    background: #fee2e2;
+    color: #dc2626;
+  }
+
+  .bottom-bar-text {
+    flex: 1;
+  }
+
   .bottom-bar-text strong {
-    font-size: 14px;
+    font-size: 14.5px;
+    font-weight: 900;
     color: var(--ink);
     display: block;
   }
 
   .bottom-bar-text span {
-    font-size: 12px;
-    color: var(--muted);
+    font-size: 12.5px;
+    color: #475569;
     font-weight: 600;
+    margin-top: 2px;
+    display: block;
   }
 
   .bottom-bar-btns {
     display: flex;
-    gap: 10px;
+    gap: 8px;
+    flex-shrink: 0;
   }
 
   .btn-secondary-white {
     background: #ffffff;
     color: var(--ink);
     border: 2px solid var(--ink);
-    box-shadow: 3px 3px 0 var(--ink);
-    padding: 10px 16px;
+    box-shadow: 2.5px 2.5px 0 var(--ink);
+    padding: 10px 14px;
     border-radius: 12px;
     font-size: 13px;
     font-weight: 800;
@@ -1541,16 +1636,68 @@ import Layout from '../layouts/Layout.astro';
     align-items: center;
     gap: 6px;
     transition: transform 0.1s;
+    white-space: nowrap;
   }
 
   .btn-secondary-white:hover {
     transform: translate(-1px, -1px);
+    box-shadow: 3.5px 3.5px 0 var(--ink);
   }
 
   /* RESPONSIVE */
   @media (max-width: 860px) {
+    .gb-page {
+      padding-top: 68px;
+    }
+
+    .gb-hero {
+      padding: 24px 0 18px;
+    }
+
     .gb-title {
-      font-size: 30px;
+      font-size: 26px;
+    }
+
+    .gb-subtitle {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .gb-search-wrap {
+      margin-bottom: 18px;
+    }
+
+    .gb-hero-cta a {
+      font-size: 13px;
+      padding: 10px 16px;
+    }
+
+    .gb-bottom-bar {
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      padding: 12px 14px;
+      border-radius: 16px;
+      box-shadow: 4px 4px 0 var(--ink);
+    }
+
+    .bottom-bar-inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 10px;
+    }
+
+    .bottom-bar-btns {
+      width: 100%;
+      display: flex;
+      gap: 8px;
+    }
+
+    .bottom-bar-btns a {
+      flex: 1;
+      justify-content: center;
+      padding: 9px 8px;
+      font-size: 12px;
     }
 
     .sim-body {
@@ -1574,17 +1721,6 @@ import Layout from '../layouts/Layout.astro';
       flex-direction: column;
       text-align: center;
       gap: 14px;
-    }
-
-    .bottom-bar-inner {
-      flex-direction: column;
-      text-align: center;
-      gap: 10px;
-    }
-
-    .bottom-bar-btns {
-      width: 100%;
-      justify-content: center;
     }
   }
 </style>
